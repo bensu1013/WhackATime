@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FD51F4AA1E425FA2001EDD58"
+               BlueprintIdentifier = "FD1415261E4274DD00B946AC"
                BuildableName = "WhackATime.app"
                BlueprintName = "WhackATime"
                ReferencedContainer = "container:WhackATime.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FD51F4AA1E425FA2001EDD58"
+            BlueprintIdentifier = "FD1415261E4274DD00B946AC"
             BuildableName = "WhackATime.app"
             BlueprintName = "WhackATime"
             ReferencedContainer = "container:WhackATime.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FD51F4AA1E425FA2001EDD58"
+            BlueprintIdentifier = "FD1415261E4274DD00B946AC"
             BuildableName = "WhackATime.app"
             BlueprintName = "WhackATime"
             ReferencedContainer = "container:WhackATime.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FD51F4AA1E425FA2001EDD58"
+            BlueprintIdentifier = "FD1415261E4274DD00B946AC"
             BuildableName = "WhackATime.app"
             BlueprintName = "WhackATime"
             ReferencedContainer = "container:WhackATime.xcodeproj">

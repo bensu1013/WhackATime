@@ -1,24 +1,26 @@
 //
-//  Droplets.swift
+//  Droplet.swift
 //  WhackATime
 //
 //  Created by Benjamin Su on 2/1/17.
 //  Copyright © 2017 Benjamin Su. All rights reserved.
 //
 
-import UIKit
+import Foundation
+import SpriteKit
 
-class Droplet: UIView {
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = UIColor.blue
+class Droplet: SKSpriteNode {
+    
+    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+        super.init(texture: texture, color: color, size: size)
         
-        UIView.animate(withDuration: 2, delay: 0, options: .allowUserInteraction, animations: { 
-            self.frame.origin.y += 200
-        }, completion: nil)
+        self.physicsBody = SKPhysicsBody(rectangleOf: size)
+        self.physicsBody?.affectedByGravity = true
+        self.physicsBody?.categoryBitMask = 4
+        self.physicsBody?.collisionBitMask = 3
+        self.physicsBody?.contactTestBitMask = 1
         
-       
         
         
     }
@@ -27,10 +29,9 @@ class Droplet: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
     deinit {
-        print("bye bye")
+        print("byebye")
     }
-
+    
+    
 }

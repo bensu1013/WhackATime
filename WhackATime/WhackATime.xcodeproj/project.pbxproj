@@ -7,29 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD14151B1E4265D500B946AC /* ScoreCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD14151A1E4265D500B946AC /* ScoreCenter.swift */; };
-		FD14151D1E4266C200B946AC /* Droplet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD14151C1E4266C200B946AC /* Droplet.swift */; };
-		FD51F4AF1E425FA2001EDD58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51F4AE1E425FA2001EDD58 /* AppDelegate.swift */; };
-		FD51F4B11E425FA2001EDD58 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51F4B01E425FA2001EDD58 /* MainViewController.swift */; };
-		FD51F4B41E425FA2001EDD58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD51F4B21E425FA2001EDD58 /* Main.storyboard */; };
-		FD51F4B61E425FA2001EDD58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD51F4B51E425FA2001EDD58 /* Assets.xcassets */; };
-		FD51F4B91E425FA2001EDD58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD51F4B71E425FA2001EDD58 /* LaunchScreen.storyboard */; };
+		FD14152B1E4274DD00B946AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD14152A1E4274DD00B946AC /* AppDelegate.swift */; };
+		FD14152D1E4274DD00B946AC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FD14152C1E4274DD00B946AC /* GameScene.sks */; };
+		FD14152F1E4274DD00B946AC /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FD14152E1E4274DD00B946AC /* Actions.sks */; };
+		FD1415311E4274DD00B946AC /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415301E4274DD00B946AC /* GameScene.swift */; };
+		FD1415331E4274DD00B946AC /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415321E4274DD00B946AC /* GameViewController.swift */; };
+		FD1415361E4274DD00B946AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD1415341E4274DD00B946AC /* Main.storyboard */; };
+		FD1415381E4274DD00B946AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD1415371E4274DD00B946AC /* Assets.xcassets */; };
+		FD14153B1E4274DD00B946AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD1415391E4274DD00B946AC /* LaunchScreen.storyboard */; };
+		FD1415431E42788900B946AC /* Droplet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415421E42788900B946AC /* Droplet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FD14151A1E4265D500B946AC /* ScoreCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreCenter.swift; sourceTree = "<group>"; };
-		FD14151C1E4266C200B946AC /* Droplet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Droplet.swift; sourceTree = "<group>"; };
-		FD51F4AB1E425FA2001EDD58 /* WhackATime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhackATime.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD51F4AE1E425FA2001EDD58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FD51F4B01E425FA2001EDD58 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		FD51F4B31E425FA2001EDD58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FD51F4B51E425FA2001EDD58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FD51F4B81E425FA2001EDD58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FD51F4BA1E425FA2001EDD58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD1415271E4274DD00B946AC /* WhackATime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhackATime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD14152A1E4274DD00B946AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FD14152C1E4274DD00B946AC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		FD14152E1E4274DD00B946AC /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		FD1415301E4274DD00B946AC /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		FD1415321E4274DD00B946AC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		FD1415351E4274DD00B946AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FD1415371E4274DD00B946AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD14153A1E4274DD00B946AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FD14153C1E4274DD00B946AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD1415421E42788900B946AC /* Droplet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Droplet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FD51F4A81E425FA2001EDD58 /* Frameworks */ = {
+		FD1415241E4274DD00B946AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,33 +43,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FD51F4A21E425FA2001EDD58 = {
+		FD14151E1E4274DD00B946AC = {
 			isa = PBXGroup;
 			children = (
-				FD51F4AD1E425FA2001EDD58 /* WhackATime */,
-				FD51F4AC1E425FA2001EDD58 /* Products */,
+				FD1415291E4274DD00B946AC /* WhackATime */,
+				FD1415281E4274DD00B946AC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FD51F4AC1E425FA2001EDD58 /* Products */ = {
+		FD1415281E4274DD00B946AC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FD51F4AB1E425FA2001EDD58 /* WhackATime.app */,
+				FD1415271E4274DD00B946AC /* WhackATime.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FD51F4AD1E425FA2001EDD58 /* WhackATime */ = {
+		FD1415291E4274DD00B946AC /* WhackATime */ = {
 			isa = PBXGroup;
 			children = (
-				FD51F4AE1E425FA2001EDD58 /* AppDelegate.swift */,
-				FD51F4B01E425FA2001EDD58 /* MainViewController.swift */,
-				FD14151C1E4266C200B946AC /* Droplet.swift */,
-				FD14151A1E4265D500B946AC /* ScoreCenter.swift */,
-				FD51F4B21E425FA2001EDD58 /* Main.storyboard */,
-				FD51F4B51E425FA2001EDD58 /* Assets.xcassets */,
-				FD51F4B71E425FA2001EDD58 /* LaunchScreen.storyboard */,
-				FD51F4BA1E425FA2001EDD58 /* Info.plist */,
+				FD14152A1E4274DD00B946AC /* AppDelegate.swift */,
+				FD14152C1E4274DD00B946AC /* GameScene.sks */,
+				FD14152E1E4274DD00B946AC /* Actions.sks */,
+				FD1415301E4274DD00B946AC /* GameScene.swift */,
+				FD1415421E42788900B946AC /* Droplet.swift */,
+				FD1415321E4274DD00B946AC /* GameViewController.swift */,
+				FD1415341E4274DD00B946AC /* Main.storyboard */,
+				FD1415371E4274DD00B946AC /* Assets.xcassets */,
+				FD1415391E4274DD00B946AC /* LaunchScreen.storyboard */,
+				FD14153C1E4274DD00B946AC /* Info.plist */,
 			);
 			path = WhackATime;
 			sourceTree = "<group>";
@@ -73,13 +79,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FD51F4AA1E425FA2001EDD58 /* WhackATime */ = {
+		FD1415261E4274DD00B946AC /* WhackATime */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FD51F4BD1E425FA2001EDD58 /* Build configuration list for PBXNativeTarget "WhackATime" */;
+			buildConfigurationList = FD14153F1E4274DD00B946AC /* Build configuration list for PBXNativeTarget "WhackATime" */;
 			buildPhases = (
-				FD51F4A71E425FA2001EDD58 /* Sources */,
-				FD51F4A81E425FA2001EDD58 /* Frameworks */,
-				FD51F4A91E425FA2001EDD58 /* Resources */,
+				FD1415231E4274DD00B946AC /* Sources */,
+				FD1415241E4274DD00B946AC /* Frameworks */,
+				FD1415251E4274DD00B946AC /* Resources */,
 			);
 			buildRules = (
 			);
@@ -87,26 +93,26 @@
 			);
 			name = WhackATime;
 			productName = WhackATime;
-			productReference = FD51F4AB1E425FA2001EDD58 /* WhackATime.app */;
+			productReference = FD1415271E4274DD00B946AC /* WhackATime.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FD51F4A31E425FA2001EDD58 /* Project object */ = {
+		FD14151F1E4274DD00B946AC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Benjamin Su";
 				TargetAttributes = {
-					FD51F4AA1E425FA2001EDD58 = {
+					FD1415261E4274DD00B946AC = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = FD51F4A61E425FA2001EDD58 /* Build configuration list for PBXProject "WhackATime" */;
+			buildConfigurationList = FD1415221E4274DD00B946AC /* Build configuration list for PBXProject "WhackATime" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -114,56 +120,58 @@
 				en,
 				Base,
 			);
-			mainGroup = FD51F4A21E425FA2001EDD58;
-			productRefGroup = FD51F4AC1E425FA2001EDD58 /* Products */;
+			mainGroup = FD14151E1E4274DD00B946AC;
+			productRefGroup = FD1415281E4274DD00B946AC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FD51F4AA1E425FA2001EDD58 /* WhackATime */,
+				FD1415261E4274DD00B946AC /* WhackATime */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FD51F4A91E425FA2001EDD58 /* Resources */ = {
+		FD1415251E4274DD00B946AC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD51F4B91E425FA2001EDD58 /* LaunchScreen.storyboard in Resources */,
-				FD51F4B61E425FA2001EDD58 /* Assets.xcassets in Resources */,
-				FD51F4B41E425FA2001EDD58 /* Main.storyboard in Resources */,
+				FD1415361E4274DD00B946AC /* Main.storyboard in Resources */,
+				FD14152D1E4274DD00B946AC /* GameScene.sks in Resources */,
+				FD1415381E4274DD00B946AC /* Assets.xcassets in Resources */,
+				FD14153B1E4274DD00B946AC /* LaunchScreen.storyboard in Resources */,
+				FD14152F1E4274DD00B946AC /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FD51F4A71E425FA2001EDD58 /* Sources */ = {
+		FD1415231E4274DD00B946AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD51F4B11E425FA2001EDD58 /* MainViewController.swift in Sources */,
-				FD51F4AF1E425FA2001EDD58 /* AppDelegate.swift in Sources */,
-				FD14151D1E4266C200B946AC /* Droplet.swift in Sources */,
-				FD14151B1E4265D500B946AC /* ScoreCenter.swift in Sources */,
+				FD1415311E4274DD00B946AC /* GameScene.swift in Sources */,
+				FD1415331E4274DD00B946AC /* GameViewController.swift in Sources */,
+				FD1415431E42788900B946AC /* Droplet.swift in Sources */,
+				FD14152B1E4274DD00B946AC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FD51F4B21E425FA2001EDD58 /* Main.storyboard */ = {
+		FD1415341E4274DD00B946AC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FD51F4B31E425FA2001EDD58 /* Base */,
+				FD1415351E4274DD00B946AC /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		FD51F4B71E425FA2001EDD58 /* LaunchScreen.storyboard */ = {
+		FD1415391E4274DD00B946AC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FD51F4B81E425FA2001EDD58 /* Base */,
+				FD14153A1E4274DD00B946AC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -171,7 +179,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		FD51F4BB1E425FA2001EDD58 /* Debug */ = {
+		FD14153D1E4274DD00B946AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -221,7 +229,7 @@
 			};
 			name = Debug;
 		};
-		FD51F4BC1E425FA2001EDD58 /* Release */ = {
+		FD14153E1E4274DD00B946AC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -264,7 +272,7 @@
 			};
 			name = Release;
 		};
-		FD51F4BE1E425FA2001EDD58 /* Debug */ = {
+		FD1415401E4274DD00B946AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -276,7 +284,7 @@
 			};
 			name = Debug;
 		};
-		FD51F4BF1E425FA2001EDD58 /* Release */ = {
+		FD1415411E4274DD00B946AC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -291,25 +299,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FD51F4A61E425FA2001EDD58 /* Build configuration list for PBXProject "WhackATime" */ = {
+		FD1415221E4274DD00B946AC /* Build configuration list for PBXProject "WhackATime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FD51F4BB1E425FA2001EDD58 /* Debug */,
-				FD51F4BC1E425FA2001EDD58 /* Release */,
+				FD14153D1E4274DD00B946AC /* Debug */,
+				FD14153E1E4274DD00B946AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FD51F4BD1E425FA2001EDD58 /* Build configuration list for PBXNativeTarget "WhackATime" */ = {
+		FD14153F1E4274DD00B946AC /* Build configuration list for PBXNativeTarget "WhackATime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FD51F4BE1E425FA2001EDD58 /* Debug */,
-				FD51F4BF1E425FA2001EDD58 /* Release */,
+				FD1415401E4274DD00B946AC /* Debug */,
+				FD1415411E4274DD00B946AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = FD51F4A31E425FA2001EDD58 /* Project object */;
+	rootObject = FD14151F1E4274DD00B946AC /* Project object */;
 }
