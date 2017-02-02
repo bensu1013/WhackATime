@@ -21,8 +21,6 @@ class Droplet: SKSpriteNode {
         self.physicsBody?.collisionBitMask = 3
         self.physicsBody?.contactTestBitMask = 3
         
-        
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,5 +31,23 @@ class Droplet: SKSpriteNode {
         print("byebye")
     }
     
+    func splashOnFloor() {
+        
+        self.color = UIColor.gray
+        
+        self.run( SKAction.sequence([SKAction.wait(forDuration: 2), SKAction.run {
+            self.removeFromParent()
+            }]))
+    }
+    
+    func tappedByUser() {
+        
+        self.color = UIColor.red
+        
+        self.run( SKAction.sequence([SKAction.wait(forDuration: 0.5), SKAction.run {
+            self.removeFromParent()
+            }]))
+        
+    }
     
 }

@@ -20,11 +20,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(factory.droplets)
         
         factory.createDroplet()
+        self.run(
+        SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 3),
+                                                  SKAction.run({self.factory.createDroplet()})])))
 
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        factory.createDroplet()
+//        factory.createDroplet()
         for touch in touches {
             let point = touch.location(in: self)
             
@@ -32,8 +35,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 if drop.contains(point) {
                     
-                    self.backgroundColor = UIColor.red
-                    drop.removeFromParent()
+                    let droplet = drop as! Droplet
+                    
+                    droplet.tappedByUser()
                     
                 }
                 
@@ -61,7 +65,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if a.categoryBitMask == 2 && b.categoryBitMask == 4 {
             
-            b.node?.removeFromParent()
+            let droplet = b.node as! Droplet
+            droplet.splashOnFloor()
             
         }
         
