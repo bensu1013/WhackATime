@@ -16,6 +16,7 @@
 		FD1415381E4274DD00B946AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD1415371E4274DD00B946AC /* Assets.xcassets */; };
 		FD14153B1E4274DD00B946AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD1415391E4274DD00B946AC /* LaunchScreen.storyboard */; };
 		FD1415431E42788900B946AC /* Droplet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415421E42788900B946AC /* Droplet.swift */; };
+		FD1415451E43B40900B946AC /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415441E43B40900B946AC /* Cat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FD14153A1E4274DD00B946AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD14153C1E4274DD00B946AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD1415421E42788900B946AC /* Droplet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Droplet.swift; sourceTree = "<group>"; };
+		FD1415441E43B40900B946AC /* Cat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				FD14152C1E4274DD00B946AC /* GameScene.sks */,
 				FD14152E1E4274DD00B946AC /* Actions.sks */,
 				FD1415301E4274DD00B946AC /* GameScene.swift */,
+				FD1415441E43B40900B946AC /* Cat.swift */,
 				FD1415421E42788900B946AC /* Droplet.swift */,
 				FD1415321E4274DD00B946AC /* GameViewController.swift */,
 				FD1415341E4274DD00B946AC /* Main.storyboard */,
@@ -152,6 +155,7 @@
 			files = (
 				FD1415311E4274DD00B946AC /* GameScene.swift in Sources */,
 				FD1415331E4274DD00B946AC /* GameViewController.swift in Sources */,
+				FD1415451E43B40900B946AC /* Cat.swift in Sources */,
 				FD1415431E42788900B946AC /* Droplet.swift in Sources */,
 				FD14152B1E4274DD00B946AC /* AppDelegate.swift in Sources */,
 			);

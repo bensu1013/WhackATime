@@ -12,11 +12,10 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let factory = DropletFactory()
-    
+    var cat: Cat?
     override func didMove(to view: SKView) {
         
         self.physicsWorld.contactDelegate = self
-        
         self.addChild(factory.droplets)
         
         factory.createDroplet()
@@ -24,6 +23,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 3),
                                                   SKAction.run({self.factory.createDroplet()})])))
 
+        cat = self.childNode(withName: "cat") as? Cat
+        
+        
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -48,6 +51,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+        cat?.update()
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
