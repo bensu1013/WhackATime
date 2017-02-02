@@ -19,7 +19,7 @@ class Droplet: SKSpriteNode {
         self.physicsBody?.affectedByGravity = true
         self.physicsBody?.categoryBitMask = 4
         self.physicsBody?.collisionBitMask = 3
-        self.physicsBody?.contactTestBitMask = 1
+        self.physicsBody?.contactTestBitMask = 3
         
         
         

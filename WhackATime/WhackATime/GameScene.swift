@@ -9,11 +9,13 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let factory = DropletFactory()
     
     override func didMove(to view: SKView) {
+        
+        self.physicsWorld.contactDelegate = self
         
         self.addChild(factory.droplets)
         
@@ -43,6 +45,30 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        print("wonder")
+        var a: SKPhysicsBody!
+        var b: SKPhysicsBody!
+        
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            a = contact.bodyA
+            b = contact.bodyB
+        } else {
+            a = contact.bodyA
+            b = contact.bodyB
+        }
+        
+        if a.categoryBitMask == 2 && b.categoryBitMask == 4 {
+            
+            b.node?.removeFromParent()
+            
+        }
+        
+        
+    }
+    
+    
 }
 
 
