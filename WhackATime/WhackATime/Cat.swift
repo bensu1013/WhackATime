@@ -11,7 +11,7 @@ import SpriteKit
 
 enum DirectionMovement {
     
-    case left, right, still
+    case left, right, still, lick
     
 }
 
@@ -35,41 +35,85 @@ class Cat: SKSpriteNode {
                 direction = .still
             }
         case .still:
-            
-            if let _ = self.action(forKey: "stayStill") {
+            movementController()
+        case .lick:
+            if let _ = self.action(forKey: "lickSelf") {
                 
             } else {
-                
-                let rand = arc4random_uniform(3)
-                
-                if rand == 0 {
-                    stayStill()
-                } else if rand == 1 {
-                    moveLeft()
-                } else if rand == 2 {
-                    moveRight()
-                }
-                
+                direction = .still
             }
         }
+    }
+    
+    private func movementController() {
         
+        if let _ = self.action(forKey: "stayStill") {
+            
+        } else {
+            
+            let rand = arc4random_uniform(4)
+            
+            switch rand {
+            case 0:
+                stayStill()
+            case 1:
+                moveLeft()
+            case 2:
+                moveRight()
+            case 3:
+                lickSelf()
+            default:
+                stayStill()
+                
+            }
+            
+        }
         
     }
     
     private func stayStill() {
-        self.run(SKAction.wait(forDuration: 2), withKey: "stayStill")
+        
+        self.run(SKAction.wait(forDuration: 1), withKey: "stayStill")
+        direction = .still
     }
     
     private func moveLeft() {
         
-        self.run(SKAction.moveTo(x: -200, duration: 2), withKey: "moveLeft")
+        let distance = CGFloat(arc4random_uniform(100)) + 100
+        
+        let dura = Double(distance / 100)
+        
+        self.run(SKAction.moveTo(x: -distance, duration: dura), withKey: "moveLeft")
+        direction = .left
         
     }
     
     private func moveRight() {
         
-        self.run(SKAction.moveTo(x: 200, duration: 2), withKey: "moveRight")
+        let distance = CGFloat(arc4random_uniform(100)) + 100
         
+        let dura = Double(distance / 100)
+        
+        self.run(SKAction.moveTo(x: distance, duration: dura), withKey: "moveRight")
+        direction = .right
+    }
+    
+    private func lickSelf() {
+        
+        self.color = UIColor.green
+        
+        let action = SKAction.sequence([SKAction.wait(forDuration: 2), SKAction.run {
+            self.color = UIColor.red
+            }])
+        
+        self.run(action, withKey: "lickSelf")
+        direction = .lick
     }
     
 }
+
+
+
+
+
+

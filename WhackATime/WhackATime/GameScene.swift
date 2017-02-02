@@ -73,11 +73,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let droplet = b.node as! Droplet
             droplet.splashOnFloor()
             
+        } else if a.categoryBitMask == 1 && b.categoryBitMask == 4 {
+            
+            let droplet = b.node as! Droplet
+            droplet.splashOnFloor()
+            
+            let cat = a.node as! Cat
+            cat.color = UIColor.black
+            
         }
         
-        
     }
-    
     
 }
 
@@ -90,7 +96,7 @@ class DropletFactory {
     func createDroplet() {
         
         let drop = Droplet(texture: nil, color: UIColor.blue, size: CGSize(width: 50, height: 50))
-        let x = CGFloat(arc4random_uniform(UInt32(1000))) - 600
+        let x = CGFloat(arc4random_uniform(UInt32(1334))) - 667
         drop.position = CGPoint(x: x, y: 300)
         droplets.addChild(drop)
         
