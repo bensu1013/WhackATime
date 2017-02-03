@@ -18,6 +18,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.addChild(factory.droplets)
         
+        
+        //Drop creation needs to move somewhere else and be cleaner!
         factory.createDroplet()
         self.run(
         SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 3),

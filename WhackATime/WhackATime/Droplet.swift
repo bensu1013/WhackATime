@@ -33,7 +33,7 @@ class Droplet: SKSpriteNode {
     
     func splashOnFloor() {
         
-        self.color = UIColor.gray
+        self.color = UIColor.brown
         
         self.run( SKAction.sequence([SKAction.wait(forDuration: 2), SKAction.run {
             self.removeFromParent()
@@ -42,9 +42,21 @@ class Droplet: SKSpriteNode {
     
     func tappedByUser() {
         
+        self.color = UIColor.green
+        
+        self.run( SKAction.sequence([SKAction.run { self.physicsBody?.affectedByGravity = false
+            self.physicsBody?.velocity.dy = 0
+            }, SKAction.wait(forDuration: 0.5), SKAction.run {
+            self.removeFromParent()
+            }]))
+        
+    }
+    
+    func splashOnCat() {
+        
         self.color = UIColor.red
         
-        self.run( SKAction.sequence([SKAction.wait(forDuration: 0.5), SKAction.run {
+        self.run( SKAction.sequence([SKAction.wait(forDuration: 1), SKAction.run {
             self.removeFromParent()
             }]))
         

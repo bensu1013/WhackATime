@@ -17,6 +17,7 @@
 		FD14153B1E4274DD00B946AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD1415391E4274DD00B946AC /* LaunchScreen.storyboard */; };
 		FD1415431E42788900B946AC /* Droplet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415421E42788900B946AC /* Droplet.swift */; };
 		FD1415451E43B40900B946AC /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415441E43B40900B946AC /* Cat.swift */; };
+		FD1415471E450EAF00B946AC /* HUDLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415461E450EAF00B946AC /* HUDLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FD14153C1E4274DD00B946AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD1415421E42788900B946AC /* Droplet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Droplet.swift; sourceTree = "<group>"; };
 		FD1415441E43B40900B946AC /* Cat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
+		FD1415461E450EAF00B946AC /* HUDLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				FD1415441E43B40900B946AC /* Cat.swift */,
 				FD1415421E42788900B946AC /* Droplet.swift */,
 				FD1415321E4274DD00B946AC /* GameViewController.swift */,
+				FD1415461E450EAF00B946AC /* HUDLayer.swift */,
 				FD1415341E4274DD00B946AC /* Main.storyboard */,
 				FD1415371E4274DD00B946AC /* Assets.xcassets */,
 				FD1415391E4274DD00B946AC /* LaunchScreen.storyboard */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD1415311E4274DD00B946AC /* GameScene.swift in Sources */,
+				FD1415471E450EAF00B946AC /* HUDLayer.swift in Sources */,
 				FD1415331E4274DD00B946AC /* GameViewController.swift in Sources */,
 				FD1415451E43B40900B946AC /* Cat.swift in Sources */,
 				FD1415431E42788900B946AC /* Droplet.swift in Sources */,
