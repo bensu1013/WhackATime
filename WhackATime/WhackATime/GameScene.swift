@@ -10,33 +10,26 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    
-    let factory = DropletFactory()
+
     var cat: Cat?
+    
     override func didMove(to view: SKView) {
         
         self.physicsWorld.contactDelegate = self
-        self.addChild(factory.droplets)
+        self.addChild(DropletFactory.droplets)
         
-        
-        //Drop creation needs to move somewhere else and be cleaner!
-        factory.createDroplet()
-        self.run(
-        SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 3),
-                                                  SKAction.run({self.factory.createDroplet()})])))
+        self.run(DropletFactory.createRainFall(), withKey: "rainFall")
 
         cat = self.childNode(withName: "cat") as? Cat
-        
-        
         
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        factory.createDroplet()
+
         for touch in touches {
             let point = touch.location(in: self)
             
-            for drop in factory.droplets.children {
+            for drop in DropletFactory.droplets.children {
                 
                 if drop.contains(point) {
                     
@@ -45,9 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     droplet.tappedByUser()
                     
                 }
-                
             }
-            
         }
     }
     
@@ -69,19 +60,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             a = contact.bodyA
             b = contact.bodyB
         }
-        
+        //droplet touches floor
         if a.categoryBitMask == 2 && b.categoryBitMask == 4 {
             
             let droplet = b.node as! Droplet
             droplet.splashOnFloor()
-            
+           
+        //droplet touches cat
         } else if a.categoryBitMask == 1 && b.categoryBitMask == 4 {
             
             let droplet = b.node as! Droplet
-            droplet.splashOnFloor()
+            droplet.splashOnCat()
             
             let cat = a.node as! Cat
-            cat.color = UIColor.black
+            cat.touchedDroplet()
             
         }
         
@@ -93,14 +85,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 class DropletFactory {
     
-    var droplets = SKNode()
+    static var droplets = SKNode()
     
-    func createDroplet() {
+    static func createDroplet() {
         
-        let drop = Droplet(texture: nil, color: UIColor.blue, size: CGSize(width: 50, height: 50))
+        let drop = Droplet(texture: nil, color: UIColor.blue, size: CGSize(width: 64, height: 64))
         let x = CGFloat(arc4random_uniform(UInt32(1334))) - 667
         drop.position = CGPoint(x: x, y: 300)
         droplets.addChild(drop)
+        
+    }
+    
+    static func createRainFall() -> SKAction {
+        
+        
+        return SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 1), SKAction.run{ DropletFactory.createDroplet() }]))
         
     }
     

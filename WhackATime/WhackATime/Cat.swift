@@ -11,7 +11,7 @@ import SpriteKit
 
 enum DirectionMovement {
     
-    case left, right, still, lick
+    case left, right, lick, still
     
 }
 
@@ -23,24 +23,20 @@ class Cat: SKSpriteNode {
         
         switch direction {
         case .left:
-            if let _ = self.action(forKey: "moveLeft") {
-                
-            } else {
+            if !self.hasActions() {
                 direction = .still
             }
         case .right:
-            if let _ = self.action(forKey: "moveRight") {
-                
-            } else {
+            if !self.hasActions() {
+                direction = .still
+            }
+        case .lick:
+            if !self.hasActions() {
                 direction = .still
             }
         case .still:
-            movementController()
-        case .lick:
-            if let _ = self.action(forKey: "lickSelf") {
-                
-            } else {
-                direction = .still
+            if !self.hasActions() {
+                movementController()
             }
         }
     }
@@ -100,14 +96,18 @@ class Cat: SKSpriteNode {
     
     private func lickSelf() {
         
-        self.color = UIColor.green
-        
-        let action = SKAction.sequence([SKAction.wait(forDuration: 2), SKAction.run {
-            self.color = UIColor.red
-            }])
+        let action = SKAction.sequence([SKAction.run {
+            self.color = UIColor.brown
+            }, SKAction.wait(forDuration: 2), SKAction.run { self.color = UIColor.green }])
         
         self.run(action, withKey: "lickSelf")
         direction = .lick
+    }
+    
+    func touchedDroplet() {
+        
+        self.color = UIColor.red
+        
     }
     
 }
