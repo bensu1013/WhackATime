@@ -11,24 +11,34 @@ import UIKit
 
 class HudLayer: UIView {
     
-    let scoreCounter = UILabel()
-    let timer = UILabel()
-    override init(frame: CGRect) {
+    static var main = HudLayer(frame: UIScreen.main.bounds)
+    
+    let scoreLabel = UILabel()
+    let timerLabel = UILabel()
+    
+    var currentScore: Int = 0
+    
+    var startTime: Double = 0
+    var currentTime: Double = 0
+    
+    private var elapsedTime: Double = 0
+    
+    private override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.backgroundColor = UIColor.clear
         
-        scoreCounter.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.64, y: 10, width: 100, height: 30)
-        scoreCounter.backgroundColor = UIColor.clear
-        scoreCounter.text = "Yo"
-        scoreCounter.textColor = UIColor.black
-        self.addSubview(scoreCounter)
+        scoreLabel.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.64, y: 10, width: 100, height: 30)
+        scoreLabel.backgroundColor = UIColor.clear
+        scoreLabel.text = "Yo"
+        scoreLabel.textColor = UIColor.black
+        self.addSubview(scoreLabel)
         
         
-        timer.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.33, y: 10, width: 100, height: 30)
-        timer.backgroundColor = UIColor.clear
-        timer.text = "0:01"
-        self.addSubview(timer)
+        timerLabel.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.33, y: 10, width: 100, height: 30)
+        timerLabel.backgroundColor = UIColor.clear
+        timerLabel.text = "0:00"
+        self.addSubview(timerLabel)
         
     }
     
@@ -36,6 +46,32 @@ class HudLayer: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setTimer(current: Double) {
+        
+        if startTime == 0 {
+            startTime = current
+        } else {
+            currentTime = current - startTime
+        }
+        let time = Int(currentTime)
+        timerLabel.text = "\(time)"
+        
+    }
+    
+    func incrementScore() {
+        
+        currentScore += 1
+        scoreLabel.text = "\(currentScore)"
+        
+    }
+    
     
     
 }
+
+
+
+
+
+
+

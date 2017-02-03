@@ -12,6 +12,8 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,8 +34,7 @@ class GameViewController: UIViewController {
             view.showsFPS = true
             view.showsNodeCount = true
         }
-        
-        let hud = HudLayer(frame: self.view.frame)
+        let hud = HudLayer.main
         self.view.addSubview(hud)
     }
 

@@ -12,6 +12,7 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
     var cat: Cat?
+    let hud = HudLayer.main
     
     override func didMove(to view: SKView) {
         
@@ -34,8 +35,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 if drop.contains(point) {
                     
                     let droplet = drop as! Droplet
-                    
                     droplet.tappedByUser()
+                    
+                    hud.incrementScore()
                     
                 }
             }
@@ -45,6 +47,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         cat?.update()
+        
+        hud.setTimer(current: currentTime)
         
     }
     
