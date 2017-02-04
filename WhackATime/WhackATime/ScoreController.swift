@@ -15,7 +15,7 @@ class ScoreController {
     private var scoreHistory: [Int] = []
     private var currentScore: Int = 0
     private var comboCounter: Int = 0
-    
+        
     private init() {}
     
     func getScoreHistory() -> [Int] {

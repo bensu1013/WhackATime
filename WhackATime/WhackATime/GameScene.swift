@@ -12,15 +12,15 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
     var cat: Cat?
+    var rainFallLevel: Int = 0
     let hud = HudLayer.main
+    
     
     override func didMove(to view: SKView) {
         
         self.physicsWorld.contactDelegate = self
         self.addChild(DropletFactory.droplets)
         
-        self.run(DropletFactory.createRainFall(), withKey: "rainFall")
-
         cat = self.childNode(withName: "cat") as? Cat
         
     }
@@ -39,6 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     
                     ScoreController.main.addToComboCounter()
                     hud.showNew(score: ScoreController.main.getCurrentScore())
+                    
                 }
             }
         }
@@ -48,12 +49,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Called before each frame is rendered
         cat?.update()
         
-        hud.setTimer(current: currentTime)
+        StopWatch.updateTime(current: currentTime)
         
+        hud.setTimer(to: StopWatch.elapsedTimeInSeconds())
+        
+        createRainFall()
+    }
+    
+    private func createRainFall() {
+        if StopWatch.elapsedTimeInSeconds() == 0 && rainFallLevel == 0 {
+            self.run(DropletFactory.createRainFall(with: 1), withKey: "rainFall1")
+            rainFallLevel += 1
+        } else if StopWatch.elapsedTimeInSeconds() > 5 && rainFallLevel == 1 {
+            self.run(DropletFactory.createRainFall(with: 1.91), withKey: "rainFall2")
+            rainFallLevel += 1
+        } else if StopWatch.elapsedTimeInSeconds() > 10 && rainFallLevel == 2 {
+            self.run(DropletFactory.createRainFall(with: 2.73), withKey: "rainFall3")
+            rainFallLevel += 1
+        }
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        print("wonder")
+        
         var a: SKPhysicsBody!
         var b: SKPhysicsBody!
         
@@ -100,10 +117,9 @@ class DropletFactory {
         
     }
     
-    static func createRainFall() -> SKAction {
+    static func createRainFall(with delay: Double) -> SKAction {
         
-        
-        return SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 1), SKAction.run{ DropletFactory.createDroplet() }]))
+        return SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: delay), SKAction.run{ DropletFactory.createDroplet() }]))
         
     }
     

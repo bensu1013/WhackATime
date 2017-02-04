@@ -19,6 +19,7 @@
 		FD1415451E43B40900B946AC /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415441E43B40900B946AC /* Cat.swift */; };
 		FD1415471E450EAF00B946AC /* HUDLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415461E450EAF00B946AC /* HUDLayer.swift */; };
 		FD1415491E45823800B946AC /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415481E45823800B946AC /* ScoreController.swift */; };
+		FD14154B1E45898E00B946AC /* StopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD14154A1E45898E00B946AC /* StopWatch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FD1415441E43B40900B946AC /* Cat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
 		FD1415461E450EAF00B946AC /* HUDLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDLayer.swift; sourceTree = "<group>"; };
 		FD1415481E45823800B946AC /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
+		FD14154A1E45898E00B946AC /* StopWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopWatch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				FD14152E1E4274DD00B946AC /* Actions.sks */,
 				FD1415301E4274DD00B946AC /* GameScene.swift */,
 				FD1415441E43B40900B946AC /* Cat.swift */,
+				FD14154A1E45898E00B946AC /* StopWatch.swift */,
 				FD1415481E45823800B946AC /* ScoreController.swift */,
 				FD1415421E42788900B946AC /* Droplet.swift */,
 				FD1415321E4274DD00B946AC /* GameViewController.swift */,
@@ -166,6 +169,7 @@
 				FD1415451E43B40900B946AC /* Cat.swift in Sources */,
 				FD1415431E42788900B946AC /* Droplet.swift in Sources */,
 				FD14152B1E4274DD00B946AC /* AppDelegate.swift in Sources */,
+				FD14154B1E45898E00B946AC /* StopWatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

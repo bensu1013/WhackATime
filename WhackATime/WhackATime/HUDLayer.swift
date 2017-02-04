@@ -16,9 +16,6 @@ class HudLayer: UIView {
     let scoreLabel = UILabel()
     let timerLabel = UILabel()
     
-    var startTime: Double = 0
-    var currentTime: Double = 0
-    
     private var elapsedTime: Double = 0
     
     private override init(frame: CGRect) {
@@ -44,15 +41,9 @@ class HudLayer: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setTimer(current: Double) {
+    func setTimer(to seconds: Int) {
         
-        if startTime == 0 {
-            startTime = current
-        } else {
-            currentTime = current - startTime
-        }
-        let time = Int(currentTime)
-        timerLabel.text = "\(time)"
+        timerLabel.text = "\(seconds)"
         
     }
     
