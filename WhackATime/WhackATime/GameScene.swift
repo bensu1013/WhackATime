@@ -37,8 +37,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     let droplet = drop as! Droplet
                     droplet.tappedByUser()
                     
-                    hud.incrementScore()
-                    
+                    ScoreController.main.addToComboCounter()
+                    hud.showNew(score: ScoreController.main.getCurrentScore())
                 }
             }
         }

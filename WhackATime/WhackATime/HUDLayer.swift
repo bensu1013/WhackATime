@@ -16,8 +16,6 @@ class HudLayer: UIView {
     let scoreLabel = UILabel()
     let timerLabel = UILabel()
     
-    var currentScore: Int = 0
-    
     var startTime: Double = 0
     var currentTime: Double = 0
     
@@ -58,10 +56,9 @@ class HudLayer: UIView {
         
     }
     
-    func incrementScore() {
+    func showNew(score: Int) {
         
-        currentScore += 1
-        scoreLabel.text = "\(currentScore)"
+        scoreLabel.text = "\(score)"
         
     }
     
