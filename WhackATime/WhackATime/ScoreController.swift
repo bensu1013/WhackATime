@@ -18,6 +18,11 @@ class ScoreController {
         
     private init() {}
     
+    func resetCounters() {
+        currentScore = 0
+        comboCounter = 0
+    }
+    
     func getScoreHistory() -> [Int] {
         return scoreHistory
     }

@@ -12,6 +12,8 @@ import SpriteKit
 
 class Droplet: SKSpriteNode {
     
+    var hasContacted: Bool = false
+    
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
         
@@ -27,21 +29,21 @@ class Droplet: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    deinit {
-        print("byebye")
-    }
-    
     func splashOnFloor() {
+        
+        hasContacted = true
         
         self.color = UIColor.brown
         
-        self.run( SKAction.sequence([SKAction.wait(forDuration: 2), SKAction.run {
-            self.removeFromParent()
-            }]))
+        let delay = SKAction.wait(forDuration: 0.5)
+        let delete = SKAction.run { self.removeFromParent() }
+        
+        self.run( SKAction.sequence([delay, delete]))
     }
     
     func tappedByUser() {
         
+        hasContacted = true
         self.color = UIColor.green
         
         self.run( SKAction.sequence([SKAction.run { self.physicsBody?.affectedByGravity = false
@@ -54,6 +56,7 @@ class Droplet: SKSpriteNode {
     
     func splashOnCat() {
         
+        hasContacted = true
         self.color = UIColor.red
         
         self.run( SKAction.sequence([SKAction.wait(forDuration: 1), SKAction.run {
