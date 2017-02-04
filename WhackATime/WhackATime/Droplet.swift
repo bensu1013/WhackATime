@@ -16,8 +16,8 @@ class Droplet: SKSpriteNode {
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
-        
-        self.physicsBody = SKPhysicsBody(rectangleOf: size)
+       
+        self.physicsBody = SKPhysicsBody(circleOfRadius: size.width / 2)
         self.physicsBody?.affectedByGravity = true
         self.physicsBody?.categoryBitMask = 4
         self.physicsBody?.collisionBitMask = 3
