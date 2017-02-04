@@ -83,28 +83,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //droplet touches floor
         if a.categoryBitMask == 2 && b.categoryBitMask == 4 {
             
-            let droplet = b.node as! Droplet
-            if !droplet.hasContacted {
-                RainFactory.createSplash(at: droplet.position)
-                droplet.splashOnFloor()
+            if let droplet = b.node as? Droplet {
+                if !droplet.hasContacted {
+                    RainFactory.createSplash(at: droplet.position)
+                    droplet.splashOnFloor()
+                }
             }
             
+        //splash touches floor
+        } else if a.categoryBitMask == 2 && b.categoryBitMask == 8 {
+        
+            if let splash = b.node as? Splash {
+                splash.removeFromParent()
+            }
             
         //droplet touches cat
         } else if a.categoryBitMask == 1 && b.categoryBitMask == 4 {
             
-            let droplet = b.node as! Droplet
-            if !droplet.hasContacted {
-                droplet.splashOnCat()
+            if let droplet = b.node as? Droplet {
+                if !droplet.hasContacted {
+                    RainFactory.createSplash(at: droplet.position)
+                    droplet.splashOnCat()
+                }
             }
-           
-            let cat = a.node as! Cat
-            cat.touchedDroplet()
             
+            if let cat = a.node as? Cat {
+                cat.touchedDroplet()
+            }
+        
+        //splash touches cat
         } else if a.categoryBitMask == 1 && b.categoryBitMask == 8 {
             
-            let splash = b.node as! Splash
-            splash.removeFromParent()
+            if let splash = b.node as? Splash {
+                splash.removeFromParent()
+            }
             
         }
         
@@ -152,10 +164,10 @@ class RainFactory {
         droplets.addChild(splash3)
         droplets.addChild(splash4)
         
-        splash1.physicsBody?.applyImpulse(CGVector(dx: -3, dy: 2))
-        splash2.physicsBody?.applyImpulse(CGVector(dx: -1, dy: 4))
-        splash3.physicsBody?.applyImpulse(CGVector(dx: 1, dy: 4))
-        splash4.physicsBody?.applyImpulse(CGVector(dx: 3, dy: 2))
+        splash1.physicsBody?.applyImpulse(CGVector(dx: -drand48(), dy: drand48() + 0.5))
+        splash2.physicsBody?.applyImpulse(CGVector(dx: -drand48(), dy: drand48() + 0.75))
+        splash3.physicsBody?.applyImpulse(CGVector(dx: drand48(), dy: drand48() + 0.5))
+        splash4.physicsBody?.applyImpulse(CGVector(dx: drand48(), dy: drand48() + 0.75))
         
     }
     

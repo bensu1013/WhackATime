@@ -18,11 +18,7 @@ class Splash: SKSpriteNode {
         self.physicsBody?.affectedByGravity = true
         self.physicsBody?.categoryBitMask = 8
         self.physicsBody?.collisionBitMask = 3
-        self.physicsBody?.contactTestBitMask = 1
-        
-        self.run( SKAction.sequence([SKAction.wait(forDuration: 2.5), SKAction.run {
-            self.removeFromParent()
-            }]))
+        self.physicsBody?.contactTestBitMask = 3
         
     }
     

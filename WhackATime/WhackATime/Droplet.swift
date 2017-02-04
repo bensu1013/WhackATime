@@ -35,7 +35,7 @@ class Droplet: SKSpriteNode {
         
         self.color = UIColor.brown
         
-        let delay = SKAction.wait(forDuration: 0.5)
+        let delay = SKAction.wait(forDuration: 0.25)
         let delete = SKAction.run { self.removeFromParent() }
         
         self.run( SKAction.sequence([delay, delete]))
@@ -59,7 +59,7 @@ class Droplet: SKSpriteNode {
         hasContacted = true
         self.color = UIColor.red
         
-        self.run( SKAction.sequence([SKAction.wait(forDuration: 1), SKAction.run {
+        self.run( SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.run {
             self.removeFromParent()
             }]))
         
