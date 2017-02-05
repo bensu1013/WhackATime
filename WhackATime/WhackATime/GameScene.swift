@@ -9,8 +9,13 @@
 import SpriteKit
 import GameplayKit
 
+protocol GameSceneDelegate {
+    func gameOver()
+}
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
+    var gsDelegate: GameSceneDelegate?
     var cat: Cat?
     var rainFallLevel: Int = 0
     let hud = HudLayer.main
@@ -35,6 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     if !droplet.hasContacted {
                         
                         droplet.tappedByUser()
+                        RainFactory.createSplash(at: droplet.position)
                         ScoreController.main.addToComboCounter()
                         hud.showNew(score: ScoreController.main.getCurrentScore())
                         
@@ -98,6 +104,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
         //droplet touches cat
+        
         } else if a.categoryBitMask == 1 && b.categoryBitMask == 4 {
             
             if let droplet = b.node as? Droplet {
@@ -106,11 +113,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     droplet.splashOnCat()
                 }
             }
-            
             if let cat = a.node as? Cat {
                 cat.touchedDroplet()
             }
         
+            //round should end at this point
+            self.speed = 0
+            gsDelegate?.gameOver()
+            
+            
         //splash touches cat
         } else if a.categoryBitMask == 1 && b.categoryBitMask == 8 {
             
@@ -126,46 +137,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
 
 
-class RainFactory {
-    
-    static var droplets = SKNode()
-    
-    static func createRainFall(with delay: Double) -> SKAction {
-        
-        let timeDelay = SKAction.wait(forDuration: delay)
-        let rain = SKAction.run { RainFactory.createDroplet() }
-        return SKAction.repeatForever(SKAction.sequence([timeDelay, rain]))
-        
-    }
-    
-    static func createDroplet() {
-        
-        let drop = Droplet(texture: nil, color: UIColor.blue, size: CGSize(width: 64, height: 64))
-        let x = CGFloat(arc4random_uniform(UInt32(1320))) - 660
-        drop.position = CGPoint(x: x, y: 400)
-        droplets.addChild(drop)
-        
-    }
-    
-    static func createSplash(at point: CGPoint) {
-        
-        let randomSplash = arc4random_uniform(4) + 2
-        
-        for _ in 0...Int(randomSplash) {
-            
-            let splash = Splash(texture: nil, color: UIColor.blue, size: CGSize(width: 16, height: 16))
-            splash.position = point
-            droplets.addChild(splash)
-            splash.physicsBody?.applyImpulse(CGVector(dx: drand48() - 0.5, dy: drand48() + 0.5))
-            
-        }
-        
-        
-    }
-    
-    
-    
-}
 
 
 

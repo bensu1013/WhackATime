@@ -23,6 +23,7 @@
 		FD14154D1E465AAF00B946AC /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD14154C1E465AAF00B946AC /* Splash.swift */; };
 		FD14154F1E46C76600B946AC /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD14154E1E46C76600B946AC /* IntroView.swift */; };
 		FD1415511E46C76D00B946AC /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415501E46C76D00B946AC /* LandingView.swift */; };
+		FD1415531E46FE1000B946AC /* RainFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415521E46FE1000B946AC /* RainFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		FD14154C1E465AAF00B946AC /* Splash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		FD14154E1E46C76600B946AC /* IntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		FD1415501E46C76D00B946AC /* LandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		FD1415521E46FE1000B946AC /* RainFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				FD14152C1E4274DD00B946AC /* GameScene.sks */,
 				FD14152E1E4274DD00B946AC /* Actions.sks */,
 				FD1415301E4274DD00B946AC /* GameScene.swift */,
+				FD1415521E46FE1000B946AC /* RainFactory.swift */,
 				FD1415441E43B40900B946AC /* Cat.swift */,
 				FD14154A1E45898E00B946AC /* StopWatch.swift */,
 				FD1415481E45823800B946AC /* ScoreController.swift */,
@@ -177,6 +180,7 @@
 				FD1415491E45823800B946AC /* ScoreController.swift in Sources */,
 				FD14154D1E465AAF00B946AC /* Splash.swift in Sources */,
 				FD1415451E43B40900B946AC /* Cat.swift in Sources */,
+				FD1415531E46FE1000B946AC /* RainFactory.swift in Sources */,
 				FD1415431E42788900B946AC /* Droplet.swift in Sources */,
 				FD14154F1E46C76600B946AC /* IntroView.swift in Sources */,
 				FD14152B1E4274DD00B946AC /* AppDelegate.swift in Sources */,

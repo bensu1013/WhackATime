@@ -49,12 +49,17 @@ class GameViewController: UIViewController {
         gameView = SKView(frame: self.view.frame)
         
         // Load the SKScene from 'GameScene.sks'
-        if let scene = SKScene(fileNamed: "GameScene") {
+        if let scene = SKScene(fileNamed: "GameScene") as? GameScene {
+            
+            scene.gsDelegate = self
+            
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
             
             // Present the scene
             gameView?.presentScene(scene)
+            
+            
         }
         
         gameView?.ignoresSiblingOrder = true
@@ -70,7 +75,31 @@ class GameViewController: UIViewController {
     
 }
 
-
+//Alerts
+extension GameViewController {
+    
+    fileprivate func gameOverAlert() {
+        
+        let alert = UIAlertController(title: "Nooo", message: "The cat got wet, he will now haunt us in our dreams.", preferredStyle: .alert)
+        let replay = UIAlertAction(title: "Replay", style: .default) { (action) in
+            if let view = self.view as? SKView {
+                if let scene = view.scene as? GameScene {
+                    scene.speed = 1
+                }
+            }
+        }
+        let quit = UIAlertAction(title: "Outta Here", style: .cancel) { (action) in
+            
+        }
+        
+        alert.addAction(replay)
+        alert.addAction(quit)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+}
 
 extension GameViewController: LandingViewDelegate {
     
@@ -78,4 +107,10 @@ extension GameViewController: LandingViewDelegate {
         loadGameScene()
     }
     
+}
+
+extension GameViewController: GameSceneDelegate {
+    func gameOver() {
+        gameOverAlert()
+    }
 }
