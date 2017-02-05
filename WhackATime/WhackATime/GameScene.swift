@@ -149,25 +149,17 @@ class RainFactory {
     
     static func createSplash(at point: CGPoint) {
         
-        let splash1 = Splash(texture: nil, color: UIColor.blue, size: CGSize(width: 16, height: 16))
-        let splash2 = Splash(texture: nil, color: UIColor.blue, size: CGSize(width: 16, height: 16))
-        let splash3 = Splash(texture: nil, color: UIColor.blue, size: CGSize(width: 16, height: 16))
-        let splash4 = Splash(texture: nil, color: UIColor.blue, size: CGSize(width: 16, height: 16))
+        let randomSplash = arc4random_uniform(4) + 2
         
-        splash1.position = point
-        splash2.position = point
-        splash3.position = point
-        splash4.position = point
+        for _ in 0...Int(randomSplash) {
+            
+            let splash = Splash(texture: nil, color: UIColor.blue, size: CGSize(width: 16, height: 16))
+            splash.position = point
+            droplets.addChild(splash)
+            splash.physicsBody?.applyImpulse(CGVector(dx: drand48() - 0.5, dy: drand48() + 0.5))
+            
+        }
         
-        droplets.addChild(splash1)
-        droplets.addChild(splash2)
-        droplets.addChild(splash3)
-        droplets.addChild(splash4)
-        
-        splash1.physicsBody?.applyImpulse(CGVector(dx: -drand48(), dy: drand48() + 0.5))
-        splash2.physicsBody?.applyImpulse(CGVector(dx: -drand48(), dy: drand48() + 0.75))
-        splash3.physicsBody?.applyImpulse(CGVector(dx: drand48(), dy: drand48() + 0.5))
-        splash4.physicsBody?.applyImpulse(CGVector(dx: drand48(), dy: drand48() + 0.75))
         
     }
     

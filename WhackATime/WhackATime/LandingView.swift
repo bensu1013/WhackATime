@@ -32,10 +32,12 @@ class LandingView: UIView {
         
         checkScores.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.62, width: frame.width * 0.4, height: frame.height * 0.2)
         checkScores.setTitle("Scores", for: .normal)
+        checkScores.addTarget(self, action: #selector(checkScoresAction), for: .touchUpInside)
         self.addSubview(checkScores)
         
         credits.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.84, width: frame.width * 0.4, height: frame.height * 0.2)
         credits.setTitle("Credits", for: .normal)
+        credits.addTarget(self, action: #selector(creditsAction), for: .touchUpInside)
         self.addSubview(credits)
         
     }
@@ -44,16 +46,23 @@ class LandingView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        print("landing go bye bye")
+    }
+    
     @objc private func startGameAction() {
         delegate?.startGameTapped()
     }
     
-    private func checkScoresAction() {
+    @objc private func checkScoresAction() {
         
     }
     
-    private func creditsAction() {
+    @objc private func creditsAction() {
         
     }
     
 }
+
+
+
