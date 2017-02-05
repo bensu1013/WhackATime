@@ -78,18 +78,17 @@ class GameViewController: UIViewController {
 //Alerts
 extension GameViewController {
     
-    fileprivate func gameOverAlert() {
+    fileprivate func gameOverAlert(scene: GameScene) {
         
         let alert = UIAlertController(title: "Nooo", message: "The cat got wet, he will now haunt us in our dreams.", preferredStyle: .alert)
         let replay = UIAlertAction(title: "Replay", style: .default) { (action) in
-            if let view = self.view as? SKView {
-                if let scene = view.scene as? GameScene {
-                    scene.speed = 1
-                }
-            }
+            scene.speed = 1
+            StopWatch.isPaused = false
         }
         let quit = UIAlertAction(title: "Outta Here", style: .cancel) { (action) in
-            
+            let landingView = LandingView(frame: self.view.frame)
+            landingView.delegate = self
+            self.view = landingView
         }
         
         alert.addAction(replay)
@@ -110,7 +109,7 @@ extension GameViewController: LandingViewDelegate {
 }
 
 extension GameViewController: GameSceneDelegate {
-    func gameOver() {
-        gameOverAlert()
+    func gameOver(scene: GameScene) {
+        gameOverAlert(scene: scene)
     }
 }

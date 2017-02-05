@@ -37,6 +37,7 @@ class ScoreController {
         if scoreHistory.count > 10 {
             scoreHistory.removeLast()
         }
+        resetCounters()
     }
     
     func getCurrentScore() -> Int {

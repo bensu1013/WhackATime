@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-protocol LandingViewDelegate {
+protocol LandingViewDelegate: class {
     func startGameTapped()
 }
 
 class LandingView: UIView {
     
-    var delegate: LandingViewDelegate?
+    weak var delegate: LandingViewDelegate?
     var startGame = UIButton()
     var checkScores = UIButton()
     var credits = UIButton()

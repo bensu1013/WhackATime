@@ -9,13 +9,13 @@
 import SpriteKit
 import GameplayKit
 
-protocol GameSceneDelegate {
-    func gameOver()
+protocol GameSceneDelegate: class {
+    func gameOver(scene: GameScene)
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
-    var gsDelegate: GameSceneDelegate?
+    weak var gsDelegate: GameSceneDelegate?
     var cat: Cat?
     var rainFallLevel: Int = 0
     let hud = HudLayer.main
@@ -28,6 +28,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         cat = self.childNode(withName: "cat") as? Cat
         
+    }
+    
+    deinit {
+        print("bye bye game scene")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -58,6 +62,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         StopWatch.updateTime(current: currentTime)
         hud.setTimer(to: StopWatch.elapsedTimeInSeconds())
         createRainFall()
+        
+    }
+    
+    func resetScene() {
+        
+        StopWatch.reset()
+        speed = 0
+        rainFallLevel = 0
+        RainFactory.droplets.removeAllChildren()
+        cat?.position.x = 0
         
     }
     
@@ -118,9 +132,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         
             //round should end at this point
-            self.speed = 0
-            gsDelegate?.gameOver()
-            
+            gsDelegate?.gameOver(scene: self)
+            resetScene()
             
         //splash touches cat
         } else if a.categoryBitMask == 1 && b.categoryBitMask == 8 {
