@@ -12,30 +12,16 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
-    
+    var gameView: SKView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let landingView = LandingView(frame: view.frame)
+        landingView.delegate = self
+        self.view = landingView
         
         
-        if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
-                // Present the scene
-                view.presentScene(scene)
-            }
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
-        }
-        let hud = HudLayer.main
-        self.view.addSubview(hud)
     }
 
     override var shouldAutorotate: Bool {
@@ -58,4 +44,38 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    fileprivate func loadGameScene() {
+        gameView = SKView(frame: self.view.frame)
+        
+        // Load the SKScene from 'GameScene.sks'
+        if let scene = SKScene(fileNamed: "GameScene") {
+            // Set the scale mode to scale to fit the window
+            scene.scaleMode = .aspectFill
+            
+            // Present the scene
+            gameView?.presentScene(scene)
+        }
+        
+        gameView?.ignoresSiblingOrder = true
+        gameView?.showsFPS = true
+        gameView?.showsNodeCount = true
+        
+        self.view = gameView
+        
+        let hud = HudLayer.main
+        self.view.addSubview(hud)
+        
+    }
+    
+}
+
+
+
+extension GameViewController: LandingViewDelegate {
+    
+    func startGameTapped() {
+        loadGameScene()
+    }
+    
 }
