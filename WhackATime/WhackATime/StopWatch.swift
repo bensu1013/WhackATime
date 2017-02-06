@@ -32,7 +32,6 @@ class StopWatch {
                 currentTime += timePaused
             }
         }
-        
     }
     
     static func elapsedTimeInSeconds() -> Int {
@@ -40,11 +39,8 @@ class StopWatch {
     }
     
     static func reset() {
-        
         isPaused = true
         startTime = 0
         currentTime = 0
-        
     }
-    
 }

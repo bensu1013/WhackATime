@@ -71,7 +71,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         speed = 0
         rainFallLevel = 0
         RainFactory.droplets.removeAllChildren()
+        ScoreController.main.addNewScore()
         cat?.position.x = 0
+        
+        
         
     }
     
