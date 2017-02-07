@@ -126,6 +126,7 @@ extension GameViewController: LandingViewDelegate {
         loadGameScene()
     }
     
+    //Deprecated, remove when confirmed
     func checkScoresTapped() {
         checkScoresAlert()
     }

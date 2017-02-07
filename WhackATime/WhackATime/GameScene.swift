@@ -40,6 +40,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let point = touch.location(in: self)
             for drop in RainFactory.droplets.children {
                 if drop.contains(point) {
+                    //TODO: - Crashed here , fix
                     let droplet = drop as! Droplet
                     if !droplet.hasContacted {
                         

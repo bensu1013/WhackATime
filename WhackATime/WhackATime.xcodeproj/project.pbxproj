@@ -24,6 +24,8 @@
 		FD14154F1E46C76600B946AC /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD14154E1E46C76600B946AC /* IntroView.swift */; };
 		FD1415511E46C76D00B946AC /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415501E46C76D00B946AC /* LandingView.swift */; };
 		FD1415531E46FE1000B946AC /* RainFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415521E46FE1000B946AC /* RainFactory.swift */; };
+		FD466ED81E48FBF300BA214D /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD466ED71E48FBF300BA214D /* ScoreView.swift */; };
+		FD466EDA1E48FC1300BA214D /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD466ED91E48FC1300BA214D /* CreditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		FD14154E1E46C76600B946AC /* IntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		FD1415501E46C76D00B946AC /* LandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 		FD1415521E46FE1000B946AC /* RainFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainFactory.swift; sourceTree = "<group>"; };
+		FD466ED71E48FBF300BA214D /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		FD466ED91E48FC1300BA214D /* CreditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,13 +95,23 @@
 				FD1415321E4274DD00B946AC /* GameViewController.swift */,
 				FD1415461E450EAF00B946AC /* HUDLayer.swift */,
 				FD14154E1E46C76600B946AC /* IntroView.swift */,
-				FD1415501E46C76D00B946AC /* LandingView.swift */,
+				FD466ED61E48FBDD00BA214D /* Landing */,
 				FD1415341E4274DD00B946AC /* Main.storyboard */,
 				FD1415371E4274DD00B946AC /* Assets.xcassets */,
 				FD1415391E4274DD00B946AC /* LaunchScreen.storyboard */,
 				FD14153C1E4274DD00B946AC /* Info.plist */,
 			);
 			path = WhackATime;
+			sourceTree = "<group>";
+		};
+		FD466ED61E48FBDD00BA214D /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				FD1415501E46C76D00B946AC /* LandingView.swift */,
+				FD466ED71E48FBF300BA214D /* ScoreView.swift */,
+				FD466ED91E48FC1300BA214D /* CreditView.swift */,
+			);
+			name = Landing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,7 +199,9 @@
 				FD14154F1E46C76600B946AC /* IntroView.swift in Sources */,
 				FD14152B1E4274DD00B946AC /* AppDelegate.swift in Sources */,
 				FD1415511E46C76D00B946AC /* LandingView.swift in Sources */,
+				FD466ED81E48FBF300BA214D /* ScoreView.swift in Sources */,
 				FD14154B1E45898E00B946AC /* StopWatch.swift in Sources */,
+				FD466EDA1E48FC1300BA214D /* CreditView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

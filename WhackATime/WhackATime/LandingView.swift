@@ -26,21 +26,7 @@ class LandingView: UIView {
         super.init(frame: frame)
         
         self.backgroundColor = UIColor.blue
-        
-        startGame.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.4, width: frame.width * 0.4, height: frame.height * 0.2)
-        startGame.setTitle("Start", for: .normal)
-        startGame.addTarget(self, action: #selector(startGameAction), for: .touchUpInside)
-        self.addSubview(startGame)
-        
-        checkScores.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.62, width: frame.width * 0.4, height: frame.height * 0.2)
-        checkScores.setTitle("Scores", for: .normal)
-        checkScores.addTarget(self, action: #selector(checkScoresAction), for: .touchUpInside)
-        self.addSubview(checkScores)
-        
-        credits.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.84, width: frame.width * 0.4, height: frame.height * 0.2)
-        credits.setTitle("Credits", for: .normal)
-        credits.addTarget(self, action: #selector(creditsAction), for: .touchUpInside)
-        self.addSubview(credits)
+        loadSubviews()
         
     }
     
@@ -52,34 +38,67 @@ class LandingView: UIView {
         print("landing go bye bye")
     }
     
-    @objc private func startGameAction() {
+    @objc fileprivate func startGameAction() {
         delegate?.startGameTapped()
     }
     
-    @objc private func checkScoresAction() {
-        delegate?.checkScoresTapped()
+    @objc fileprivate func checkScoresAction() {
+//        delegate?.checkScoresTapped()
+        print("checking scores")
+        let scoreView = ScoreView(frame: self.frame)
+        self.addSubview(scoreView)
     }
     
-    @objc private func creditsAction() {
+    @objc fileprivate func creditsAction() {
         delegate?.creditsTapped()
     }
     
 }
 
-class ScoreView: UIView {
+//MARK: - Subviews
+extension LandingView {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    fileprivate func loadSubviews() {
         
-        
+        loadStartGameButton()
+        loadCheckScoresButton()
+        loadCreditsButton()
         
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    fileprivate func loadStartGameButton() {
+        startGame.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.4, width: frame.width * 0.4, height: frame.height * 0.12)
+        startGame.backgroundColor = UIColor.green
+        startGame.setTitle("Start", for: .normal)
+        startGame.addTarget(self, action: #selector(startGameAction), for: .touchUpInside)
+        self.addSubview(startGame)
+    }
+    
+    fileprivate func loadCheckScoresButton() {
+        checkScores.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.53, width: frame.width * 0.4, height: frame.height * 0.12)
+        checkScores.backgroundColor = UIColor.yellow
+        checkScores.setTitle("Scores", for: .normal)
+        checkScores.addTarget(self, action: #selector(checkScoresAction), for: .touchUpInside)
+        self.addSubview(checkScores)
+    }
+    
+    fileprivate func loadCreditsButton() {
+        credits.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.66, width: frame.width * 0.4, height: frame.height * 0.12)
+        credits.backgroundColor = UIColor.brown
+        credits.setTitle("Credits", for: .normal)
+        credits.addTarget(self, action: #selector(creditsAction), for: .touchUpInside)
+        self.addSubview(credits)
     }
     
 }
+
+
+
+
+
+
+
+
 
 
 
