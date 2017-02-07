@@ -98,26 +98,6 @@ extension GameViewController {
         
     }
     
-    fileprivate func checkScoresAlert() {
-        
-        var scores = ""
-        
-        for score in ScoreController.main.getScoreHistory() {
-            scores += "\n\(score)"
-        }
-        
-        if scores == "" { scores = "None \n \n Go Play!" }
-        
-        let alert = UIAlertController(title: "Scores", message: scores, preferredStyle: .alert)
-        let replay = UIAlertAction(title: "Done", style: .cancel, handler: nil)
-        
-        alert.addAction(replay)
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-    
-    
 }
 
 extension GameViewController: LandingViewDelegate {
@@ -128,7 +108,7 @@ extension GameViewController: LandingViewDelegate {
     
     //Deprecated, remove when confirmed
     func checkScoresTapped() {
-        checkScoresAlert()
+        
     }
     
     func creditsTapped() {

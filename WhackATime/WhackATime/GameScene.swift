@@ -40,12 +40,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let point = touch.location(in: self)
             for drop in RainFactory.droplets.children {
                 if drop.contains(point) {
-                    //TODO: - Crashed here , fix
+                    
                     let droplet = drop as! Droplet
                     if !droplet.hasContacted {
                         
-                        droplet.tappedByUser()
                         RainFactory.createSplash(at: droplet.position)
+                        droplet.tappedByUser()
                         ScoreController.main.addToComboCounter()
                         hud.showNew(score: ScoreController.main.getCurrentScore())
                         
@@ -73,6 +73,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rainFallLevel = 0
         RainFactory.droplets.removeAllChildren()
         ScoreController.main.addNewScore()
+        hud.setTimer(to: 0)
+        hud.showNew(score: 0)
         cat?.position.x = 0
         
         
