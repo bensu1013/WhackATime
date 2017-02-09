@@ -44,13 +44,22 @@ class Droplet: SKSpriteNode {
     func tappedByUser() {
         
         hasContacted = true
-        self.color = UIColor.green
         
-        self.run( SKAction.sequence([SKAction.run { self.physicsBody?.affectedByGravity = false
+        let initialContact = SKAction.run {
+            self.physicsBody?.affectedByGravity = false
             self.physicsBody?.velocity.dy = 0
-            }, SKAction.wait(forDuration: 0.5), SKAction.run {
+            self.alpha = 0.5
+        }
+        
+        let delayTime = SKAction.wait(forDuration: 0.5)
+        
+        let remove = SKAction.run {
             self.removeFromParent()
-            }]))
+        }
+        
+        let sequence = SKAction.sequence([initialContact, delayTime, remove])
+        
+        self.run(sequence)
         
     }
     

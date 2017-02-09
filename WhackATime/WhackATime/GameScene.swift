@@ -35,20 +35,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
+        
         for touch in touches {
             let point = touch.location(in: self)
             for drop in RainFactory.droplets.children {
                 if drop.contains(point) {
                     
-                    let droplet = drop as! Droplet
-                    if !droplet.hasContacted {
-                        
-                        RainFactory.createSplash(at: droplet.position)
-                        droplet.tappedByUser()
-                        ScoreController.main.addToComboCounter()
-                        hud.showNew(score: ScoreController.main.getCurrentScore())
-                        
+                    if let droplet = drop as? Droplet {
+                        if !droplet.hasContacted {
+                            
+                            RainFactory.createSplash(at: droplet.position)
+                            droplet.tappedByUser()
+                            ScoreController.main.addToComboCounter()
+                            hud.showNew(score: ScoreController.main.getCurrentScore())
+                            
+                        }
                     }
                 }
             }
