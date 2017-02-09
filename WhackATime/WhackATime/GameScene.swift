@@ -70,6 +70,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         StopWatch.reset()
         speed = 0
+        self.removeAllActions()
         rainFallLevel = 0
         RainFactory.droplets.removeAllChildren()
         ScoreController.main.addNewScore()
@@ -90,6 +91,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             rainFallLevel += 1
         } else if StopWatch.elapsedTimeInSeconds() > 30 && rainFallLevel == 2 {
             self.run(RainFactory.createRainFall(with: 2.73), withKey: "rainFall3")
+            rainFallLevel += 1
+        } else if StopWatch.elapsedTimeInSeconds() > 45 && rainFallLevel == 3 {
+            self.run(RainFactory.createRainFall(with: 3.12), withKey: "rainFall3")
+            rainFallLevel += 1
+        } else if StopWatch.elapsedTimeInSeconds() > 60 && rainFallLevel == 4 {
+            self.run(RainFactory.createRainFall(with: 3.97), withKey: "rainFall3")
+            rainFallLevel += 1
+        } else if StopWatch.elapsedTimeInSeconds() > 120 && rainFallLevel == 5 {
+            self.run(RainFactory.createRainFall(with: 4.32), withKey: "rainFall3")
             rainFallLevel += 1
         }
     }
