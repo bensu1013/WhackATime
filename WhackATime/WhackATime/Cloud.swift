@@ -26,7 +26,7 @@ class Cloud: SKSpriteNode {
     
     private func soarThroughTheSky() {
         
-        let moveDuration = Double(arc4random_uniform(5)) + 5
+        let moveDuration = Double(arc4random_uniform(5)) + 15
         
         let move = SKAction.moveBy(x: -1500, y: 0, duration: moveDuration)
         

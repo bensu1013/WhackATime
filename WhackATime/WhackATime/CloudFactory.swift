@@ -38,8 +38,8 @@ class CloudFactory {
         let texture = cloudTextures[index]
         
         let cloud = Cloud(texture: texture, color: UIColor.clear, size: texture.size())
-        let x:CGFloat = 800
-        let y = CGFloat(arc4random_uniform(UInt32(400))) + 200
+        let x:CGFloat = 750
+        let y = CGFloat(arc4random_uniform(UInt32(200))) + 150
         
         cloud.position = CGPoint(x: x, y: y)
         clouds.addChild(cloud)

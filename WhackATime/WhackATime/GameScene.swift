@@ -72,7 +72,7 @@ class GameScene: SKScene {
         
         speed = 1
         StopWatch.isPaused = false
-        self.run(CloudFactory.cycleClouds(delay: 3))
+        self.run(CloudFactory.cycleClouds(delay: 5))
         cat?.position.x = 0
         
     }
