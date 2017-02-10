@@ -13,20 +13,21 @@ protocol GameSceneDelegate: class {
     func gameOver(scene: GameScene)
 }
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class GameScene: SKScene {
 
     weak var gsDelegate: GameSceneDelegate?
     var cat: Cat?
     var rainFallLevel: Int = 0
     let hud = HudLayer.main
     
-    
     override func didMove(to view: SKView) {
         
         self.physicsWorld.contactDelegate = self
         self.addChild(RainFactory.droplets)
-        
+        self.addChild(CloudFactory.clouds)
         cat = self.childNode(withName: "cat") as? Cat
+        
+        startGame()
         
     }
     
@@ -67,23 +68,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    func resetScene() {
+    func startGame() {
+        
+        speed = 1
+        StopWatch.isPaused = false
+        self.run(CloudFactory.cycleClouds(delay: 3))
+        cat?.position.x = 0
+        
+    }
+    
+    fileprivate func resetScene() {
         
         StopWatch.reset()
         speed = 0
         self.removeAllActions()
         rainFallLevel = 0
         RainFactory.droplets.removeAllChildren()
+        CloudFactory.clouds.removeAllChildren()
         ScoreController.main.addNewScore()
         hud.setTimer(to: 0)
         hud.showNew(score: 0)
-        cat?.position.x = 0
-        
-        
         
     }
     
-    private func createRainFall() {
+    fileprivate func createRainFall() {
         if StopWatch.elapsedTimeInSeconds() == 0 && rainFallLevel == 0 {
             self.run(RainFactory.createRainFall(with: 1), withKey: "rainFall1")
             rainFallLevel += 1
@@ -104,6 +112,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             rainFallLevel += 1
         }
     }
+    
+    
+}
+
+extension GameScene: SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         
@@ -127,15 +140,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
             
-        //splash touches floor
+            //splash touches floor
         } else if a.categoryBitMask == 2 && b.categoryBitMask == 8 {
-        
+            
             if let splash = b.node as? Splash {
                 splash.removeFromParent()
             }
             
-        //droplet touches cat
-        
+            //droplet touches cat
+            
         } else if a.categoryBitMask == 1 && b.categoryBitMask == 4 {
             
             if let droplet = b.node as? Droplet {
@@ -147,12 +160,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if let cat = a.node as? Cat {
                 cat.touchedDroplet()
             }
-        
+            
             //round should end at this point
             gsDelegate?.gameOver(scene: self)
             resetScene()
             
-        //splash touches cat
+            //splash touches cat
         } else if a.categoryBitMask == 1 && b.categoryBitMask == 8 {
             
             if let splash = b.node as? Splash {
@@ -162,12 +175,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
     }
-    
+
 }
-
-
-
-
 
 
 

@@ -82,8 +82,7 @@ extension GameViewController {
         
         let alert = UIAlertController(title: "Nooo", message: "The cat got wet, he will now haunt us in our dreams.", preferredStyle: .alert)
         let replay = UIAlertAction(title: "Replay", style: .default) { (action) in
-            scene.speed = 1
-            StopWatch.isPaused = false
+            scene.startGame()
         }
         let quit = UIAlertAction(title: "Outta Here", style: .cancel) { (action) in
             let landingView = LandingView(frame: self.view.frame)

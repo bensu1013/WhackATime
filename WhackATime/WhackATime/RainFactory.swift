@@ -29,7 +29,7 @@ class RainFactory {
     static func createRainFall(with delay: Double) -> SKAction {
         
         let timeDelay = SKAction.wait(forDuration: delay)
-        let rain = SKAction.run { RainFactory.createDroplet() }
+        let rain = SKAction.run { createDroplet() }
         return SKAction.repeatForever(SKAction.sequence([timeDelay, rain]))
         
     }
@@ -58,10 +58,7 @@ class RainFactory {
             splash.physicsBody?.applyImpulse(CGVector(dx: drand48() - 0.5, dy: drand48() + 0.5))
             
         }
-        
-        
+            
     }
-    
-    
-    
+
 }

@@ -26,6 +26,8 @@
 		FD1415531E46FE1000B946AC /* RainFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1415521E46FE1000B946AC /* RainFactory.swift */; };
 		FD466ED81E48FBF300BA214D /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD466ED71E48FBF300BA214D /* ScoreView.swift */; };
 		FD466EDA1E48FC1300BA214D /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD466ED91E48FC1300BA214D /* CreditView.swift */; };
+		FD466EDC1E4D660C00BA214D /* CloudFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD466EDB1E4D660C00BA214D /* CloudFactory.swift */; };
+		FD466EE11E4D66EC00BA214D /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD466EE01E4D66EC00BA214D /* Cloud.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		FD1415521E46FE1000B946AC /* RainFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainFactory.swift; sourceTree = "<group>"; };
 		FD466ED71E48FBF300BA214D /* ScoreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		FD466ED91E48FC1300BA214D /* CreditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
+		FD466EDB1E4D660C00BA214D /* CloudFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudFactory.swift; sourceTree = "<group>"; };
+		FD466EE01E4D66EC00BA214D /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,16 +90,13 @@
 				FD14152C1E4274DD00B946AC /* GameScene.sks */,
 				FD14152E1E4274DD00B946AC /* Actions.sks */,
 				FD1415301E4274DD00B946AC /* GameScene.swift */,
-				FD1415521E46FE1000B946AC /* RainFactory.swift */,
-				FD1415441E43B40900B946AC /* Cat.swift */,
-				FD14154A1E45898E00B946AC /* StopWatch.swift */,
-				FD1415481E45823800B946AC /* ScoreController.swift */,
-				FD1415421E42788900B946AC /* Droplet.swift */,
-				FD14154C1E465AAF00B946AC /* Splash.swift */,
-				FD1415321E4274DD00B946AC /* GameViewController.swift */,
-				FD1415461E450EAF00B946AC /* HUDLayer.swift */,
-				FD14154E1E46C76600B946AC /* IntroView.swift */,
+				FD466EDF1E4D66BA00BA214D /* Bodies */,
+				FD466EDE1E4D668A00BA214D /* Model */,
+				FD466EDD1E4D666A00BA214D /* Factories */,
 				FD466ED61E48FBDD00BA214D /* Landing */,
+				FD1415321E4274DD00B946AC /* GameViewController.swift */,
+				FD14154E1E46C76600B946AC /* IntroView.swift */,
+				FD1415461E450EAF00B946AC /* HUDLayer.swift */,
 				FD1415341E4274DD00B946AC /* Main.storyboard */,
 				FD1415371E4274DD00B946AC /* Assets.xcassets */,
 				FD1415391E4274DD00B946AC /* LaunchScreen.storyboard */,
@@ -112,6 +113,35 @@
 				FD466ED91E48FC1300BA214D /* CreditView.swift */,
 			);
 			name = Landing;
+			sourceTree = "<group>";
+		};
+		FD466EDD1E4D666A00BA214D /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				FD1415521E46FE1000B946AC /* RainFactory.swift */,
+				FD466EDB1E4D660C00BA214D /* CloudFactory.swift */,
+			);
+			name = Factories;
+			sourceTree = "<group>";
+		};
+		FD466EDE1E4D668A00BA214D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD14154A1E45898E00B946AC /* StopWatch.swift */,
+				FD1415481E45823800B946AC /* ScoreController.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FD466EDF1E4D66BA00BA214D /* Bodies */ = {
+			isa = PBXGroup;
+			children = (
+				FD1415441E43B40900B946AC /* Cat.swift */,
+				FD1415421E42788900B946AC /* Droplet.swift */,
+				FD14154C1E465AAF00B946AC /* Splash.swift */,
+				FD466EE01E4D66EC00BA214D /* Cloud.swift */,
+			);
+			name = Bodies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,9 +227,11 @@
 				FD1415531E46FE1000B946AC /* RainFactory.swift in Sources */,
 				FD1415431E42788900B946AC /* Droplet.swift in Sources */,
 				FD14154F1E46C76600B946AC /* IntroView.swift in Sources */,
+				FD466EDC1E4D660C00BA214D /* CloudFactory.swift in Sources */,
 				FD14152B1E4274DD00B946AC /* AppDelegate.swift in Sources */,
 				FD1415511E46C76D00B946AC /* LandingView.swift in Sources */,
 				FD466ED81E48FBF300BA214D /* ScoreView.swift in Sources */,
+				FD466EE11E4D66EC00BA214D /* Cloud.swift in Sources */,
 				FD14154B1E45898E00B946AC /* StopWatch.swift in Sources */,
 				FD466EDA1E48FC1300BA214D /* CreditView.swift in Sources */,
 			);
