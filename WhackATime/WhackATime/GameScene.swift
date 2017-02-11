@@ -16,7 +16,7 @@ protocol GameSceneDelegate: class {
 class GameScene: SKScene {
 
     weak var gsDelegate: GameSceneDelegate?
-    var cat: Cat?
+    var bunny: Bunny?
     var rainFallLevel: Int = 0
     let hud = HudLayer.main
     
@@ -25,7 +25,7 @@ class GameScene: SKScene {
         self.physicsWorld.contactDelegate = self
         self.addChild(RainFactory.droplets)
         self.addChild(CloudFactory.clouds)
-        cat = self.childNode(withName: "cat") as? Cat
+        bunny = self.childNode(withName: "bunny") as? Bunny
         
         startGame()
         
@@ -61,7 +61,7 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         
-        cat?.update()
+        bunny?.update()
         StopWatch.updateTime(current: currentTime)
         hud.setTimer(to: StopWatch.elapsedTimeInSeconds())
         createRainFall()
@@ -73,7 +73,7 @@ class GameScene: SKScene {
         speed = 1
         StopWatch.isPaused = false
         self.run(CloudFactory.cycleClouds(delay: 5))
-        cat?.position.x = 0
+        bunny?.position.x = 0
         
     }
     
@@ -157,8 +157,8 @@ extension GameScene: SKPhysicsContactDelegate {
                     droplet.splashOnCat()
                 }
             }
-            if let cat = a.node as? Cat {
-                cat.touchedDroplet()
+            if let bunny = a.node as? Bunny {
+                bunny.touchedDroplet()
             }
             
             //round should end at this point

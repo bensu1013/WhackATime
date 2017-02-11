@@ -11,13 +11,22 @@ import SpriteKit
 
 enum DirectionMovement {
     
-    case left, right, lick, still
+    case left, right, sit, still
     
 }
 
-class Cat: SKSpriteNode {
+class Bunny: SKSpriteNode {
     
     var direction: DirectionMovement = .still
+    
+    private var hurtTexture = SKTexture(imageNamed: "bunny1_hurt")
+    private var jumpTexture = SKTexture(imageNamed: "bunny1_jump")
+    private var readyTexture = SKTexture(imageNamed: "bunny1_ready")
+    private var standTexture = SKTexture(imageNamed: "bunny1_stand")
+    private var walkTexture = [SKTexture(imageNamed: "bunny1_walk1"),
+                               SKTexture(imageNamed: "bunny1_walk2"),
+                               SKTexture(imageNamed: "bunny1_walk1"),
+                               SKTexture(imageNamed: "bunny1_walk2")]
     
     func update() {
         
@@ -30,7 +39,7 @@ class Cat: SKSpriteNode {
             if !self.hasActions() {
                 direction = .still
             }
-        case .lick:
+        case .sit:
             if !self.hasActions() {
                 direction = .still
             }
@@ -57,7 +66,7 @@ class Cat: SKSpriteNode {
             case 2:
                 moveRight()
             case 3:
-                lickSelf()
+                sitDown()
             default:
                 stayStill()
                 
@@ -69,7 +78,10 @@ class Cat: SKSpriteNode {
     
     private func stayStill() {
         
+        self.texture = standTexture
+        
         self.run(SKAction.wait(forDuration: 1), withKey: "stayStill")
+        
         direction = .still
     }
     
@@ -79,7 +91,14 @@ class Cat: SKSpriteNode {
         
         let dura = Double(distance / 100)
         
+        if xScale > 0 {
+            self.xScale = self.xScale * -1
+        }
+        
+        self.run(SKAction.animate(with: walkTexture, timePerFrame: 0.15))
+        
         self.run(SKAction.moveTo(x: -distance, duration: dura), withKey: "moveLeft")
+        
         direction = .left
         
     }
@@ -90,23 +109,38 @@ class Cat: SKSpriteNode {
         
         let dura = Double(distance / 100)
         
-        self.run(SKAction.moveTo(x: distance, duration: dura), withKey: "moveRight")
+        if xScale < 0 {
+            self.xScale = self.xScale * -1
+        }
+        
+        let animate = SKAction.animate(with: walkTexture, timePerFrame: 0.15)
+        
+        let movement = SKAction.moveTo(x: distance, duration: dura)
+        
+        let sequence = SKAction.sequence([animate, movement])
+        
+        self.run(sequence, withKey: "moveRight")
+        
         direction = .right
     }
     
-    private func lickSelf() {
+    private func sitDown() {
         
-        let action = SKAction.sequence([SKAction.run {
-            self.color = UIColor.brown
-            }, SKAction.wait(forDuration: 2), SKAction.run { self.color = UIColor.green }])
+        self.texture = jumpTexture
         
-        self.run(action, withKey: "lickSelf")
-        direction = .lick
+        let action = SKAction.sequence([SKAction.wait(forDuration: 2), SKAction.run {
+            self.texture = self.readyTexture
+            }])
+        
+        self.run(action, withKey: "sitDown")
+        
+        direction = .sit
+        
     }
     
     func touchedDroplet() {
         
-        self.color = UIColor.red
+        self.texture = hurtTexture
         
     }
     

@@ -80,7 +80,7 @@ extension GameViewController {
     
     fileprivate func gameOverAlert(scene: GameScene) {
         
-        let alert = UIAlertController(title: "Nooo", message: "The cat got wet, he will now haunt us in our dreams.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Oh Boy", message: "Bunny was crushed by falling heads.", preferredStyle: .alert)
         let replay = UIAlertAction(title: "Replay", style: .default) { (action) in
             scene.startGame()
         }
