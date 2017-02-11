@@ -15,6 +15,7 @@ class HudLayer: UIView {
     
     let scoreLabel = UILabel()
     let timerLabel = UILabel()
+    let menuButton = UIButton()
     
     private var elapsedTime: Double = 0
     
@@ -35,10 +36,19 @@ class HudLayer: UIView {
         timerLabel.text = "Time: 0:00"
         self.addSubview(timerLabel)
         
+        menuButton.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.9, y: 10, width: 100, height: 44)
+        menuButton.setTitle("Menu", for: .normal)
+        menuButton.addTarget(self, action: #selector(menuButtonAction), for: .touchUpInside)
+        self.addSubview(menuButton)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc private func menuButtonAction() {
+        print("bring up menu")
     }
     
     func setTimer(to seconds: Int) {
