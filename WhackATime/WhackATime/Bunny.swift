@@ -91,13 +91,17 @@ class Bunny: SKSpriteNode {
         
         let dura = Double(distance / 100)
         
-        if xScale > 0 {
-            self.xScale = self.xScale * -1
-        }
+        self.xScale = -1
         
-        self.run(SKAction.animate(with: walkTexture, timePerFrame: 0.15))
+        self.run(SKAction.repeatForever(SKAction.animate(with: walkTexture, timePerFrame: 0.15)), withKey: "moving")
         
-        self.run(SKAction.moveTo(x: -distance, duration: dura), withKey: "moveLeft")
+        let move = SKAction.moveBy(x: -distance, y: 0, duration: dura)
+        
+        let done = SKAction.run { self.removeAction(forKey: "moving") }
+        
+        let sequence = SKAction.sequence([move, done])
+        
+        self.run(sequence, withKey: "moveLeft")
         
         direction = .left
         
@@ -109,15 +113,15 @@ class Bunny: SKSpriteNode {
         
         let dura = Double(distance / 100)
         
-        if xScale < 0 {
-            self.xScale = self.xScale * -1
-        }
+        self.xScale = 1
         
-        let animate = SKAction.animate(with: walkTexture, timePerFrame: 0.15)
+        self.run(SKAction.repeatForever(SKAction.animate(with: walkTexture, timePerFrame: 0.15)), withKey: "moving")
         
-        let movement = SKAction.moveTo(x: distance, duration: dura)
+        let move = SKAction.moveBy(x: distance, y: 0, duration: dura)
         
-        let sequence = SKAction.sequence([animate, movement])
+        let done = SKAction.run { self.removeAction(forKey: "moving") }
+        
+        let sequence = SKAction.sequence([move, done])
         
         self.run(sequence, withKey: "moveRight")
         
