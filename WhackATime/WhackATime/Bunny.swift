@@ -24,8 +24,6 @@ class Bunny: SKSpriteNode {
     private var readyTexture = SKTexture(imageNamed: "bunny1_ready")
     private var standTexture = SKTexture(imageNamed: "bunny1_stand")
     private var walkTexture = [SKTexture(imageNamed: "bunny1_walk1"),
-                               SKTexture(imageNamed: "bunny1_walk2"),
-                               SKTexture(imageNamed: "bunny1_walk1"),
                                SKTexture(imageNamed: "bunny1_walk2")]
     
     func update() {
@@ -78,11 +76,20 @@ class Bunny: SKSpriteNode {
     
     private func stayStill() {
         
-        self.texture = standTexture
-        
         self.run(SKAction.wait(forDuration: 1), withKey: "stayStill")
         
+        self.run(SKAction.repeatForever(SKAction.animate(with: [readyTexture, standTexture], timePerFrame: 0.25)), withKey: "standing")
+        
+        let wait = SKAction.wait(forDuration: 2)
+        
+        let done = SKAction.run { self.removeAction(forKey: "standing") }
+        
+        let sequence = SKAction.sequence([wait, done])
+        
+        self.run(sequence, withKey: "stayStill")
+        
         direction = .still
+        
     }
     
     private func moveLeft() {
@@ -132,11 +139,7 @@ class Bunny: SKSpriteNode {
         
         self.texture = jumpTexture
         
-        let action = SKAction.sequence([SKAction.wait(forDuration: 2), SKAction.run {
-            self.texture = self.readyTexture
-            }])
-        
-        self.run(action, withKey: "sitDown")
+        self.run(SKAction.wait(forDuration: 2), withKey: "sitDown")
         
         direction = .sit
         
@@ -145,7 +148,7 @@ class Bunny: SKSpriteNode {
     func touchedDroplet() {
         
         self.texture = hurtTexture
-        
+
     }
     
 }
