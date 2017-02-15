@@ -6,6 +6,8 @@
 //  Copyright © 2017 Benjamin Su. All rights reserved.
 //
 
+import Foundation
+import UIKit
 import SpriteKit
 import GameplayKit
 
@@ -21,6 +23,8 @@ class GameScene: SKScene {
     let hud = HudLayer.main
     
     override func didMove(to view: SKView) {
+        
+        hud.gsDelegate = self
         
         self.physicsWorld.contactDelegate = self
         self.addChild(RainFactory.droplets)
@@ -113,6 +117,21 @@ class GameScene: SKScene {
         }
     }
     
+    
+}
+
+extension GameScene: HUDToGSDelegate {
+    
+    func pauseGameForMenu() {
+        self.speed = 0
+        if let drops = RainFactory.droplets.children as? [Droplet] {
+            for drop in drops {
+                
+                drop.physicsBody?.pinned = true
+                
+            }
+        }
+    }
     
 }
 

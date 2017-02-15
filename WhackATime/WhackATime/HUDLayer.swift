@@ -9,9 +9,20 @@
 import Foundation
 import UIKit
 
+protocol HUDToVCDelegate: class {
+    func showMenu()
+}
+
+protocol HUDToGSDelegate: class {
+    func pauseGameForMenu()
+}
+
 class HudLayer: UIView {
     
     static var main = HudLayer(frame: UIScreen.main.bounds)
+    
+    weak var vcDelegate: HUDToVCDelegate?
+    weak var gsDelegate: HUDToGSDelegate?
     
     let scoreLabel = UILabel()
     let timerLabel = UILabel()
@@ -48,7 +59,8 @@ class HudLayer: UIView {
     }
     
     @objc private func menuButtonAction() {
-        print("bring up menu")
+        gsDelegate?.pauseGameForMenu()
+        vcDelegate?.showMenu()
     }
     
     func setTimer(to seconds: Int) {

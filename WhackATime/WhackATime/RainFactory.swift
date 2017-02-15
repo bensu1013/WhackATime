@@ -22,7 +22,6 @@ class RainFactory {
         SKTexture(imageNamed: "parrot"),
         SKTexture(imageNamed: "penguin"),
         SKTexture(imageNamed: "pig"),
-        SKTexture(imageNamed: "rabbit"),
         SKTexture(imageNamed: "snake")
     ]
     

@@ -69,8 +69,10 @@ class GameViewController: UIViewController {
         self.view = gameView
         
         let hud = HudLayer.main
+        hud.vcDelegate = self
         self.view.addSubview(hud)
         StopWatch.isPaused = false
+        
     }
     
 }
@@ -97,6 +99,30 @@ extension GameViewController {
         
     }
     
+    fileprivate func menuAlert() {
+        
+        let alert = UIAlertController(title: "Oh Boy", message: "Bunny was crushed by falling heads.", preferredStyle: .alert)
+        let replay = UIAlertAction(title: "Replay", style: .default) { (action) in
+            
+        }
+        
+        let quit = UIAlertAction(title: "Outta Here", style: .cancel) { (action) in
+            
+        }
+        
+        alert.addAction(replay)
+        alert.addAction(quit)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+}
+
+extension GameViewController: HUDToVCDelegate {
+    func showMenu() {
+        menuAlert()
+    }
 }
 
 extension GameViewController: LandingViewDelegate {
