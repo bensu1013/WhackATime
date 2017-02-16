@@ -63,7 +63,8 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        
+        isPaused ? print("pause") : print("not paused")
+        print(1)
         bunny?.update()
         StopWatch.updateTime(current: currentTime)
         hud.setTimer(to: StopWatch.elapsedTimeInSeconds())
@@ -73,17 +74,17 @@ class GameScene: SKScene {
     
     func startGame() {
         
-        speed = 1
+        self.isPaused = false
         StopWatch.isPaused = false
         self.run(CloudFactory.cycleClouds(delay: 5))
         bunny?.position.x = 0
         
     }
     
-    fileprivate func resetScene() {
+    func resetScene() {
         
         StopWatch.reset()
-        speed = 0
+        self.isPaused = true
         self.removeAllActions()
         rainFallLevel = 0
         RainFactory.droplets.removeAllChildren()

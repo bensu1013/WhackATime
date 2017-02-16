@@ -13,14 +13,13 @@ import GameplayKit
 class GameViewController: UIViewController {
 
     var gameView: SKView?
+    var landingView: LandingView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let landingView = LandingView(frame: view.frame)
-        landingView.delegate = self
-        self.view = landingView
-        
+        loadLandingView()
+        loadGameScene()
         
     }
 
@@ -45,13 +44,19 @@ class GameViewController: UIViewController {
         return true
     }
     
+    fileprivate func loadLandingView() {
+        landingView = LandingView(frame: view.frame)
+        landingView?.delegate = self
+        self.view = landingView
+    }
+    
     fileprivate func loadGameScene() {
         gameView = SKView(frame: self.view.frame)
         
         // Load the SKScene from 'GameScene.sks'
         if let scene = SKScene(fileNamed: "GameScene") as? GameScene {
             
-            scene.gsDelegate = self
+            
             
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
@@ -59,6 +64,8 @@ class GameViewController: UIViewController {
             // Present the scene
             gameView?.presentScene(scene)
             
+            scene.gsDelegate = self
+            scene.isPaused = true
             
         }
         
@@ -66,12 +73,10 @@ class GameViewController: UIViewController {
         gameView?.showsFPS = true
         gameView?.showsNodeCount = true
         
-        self.view = gameView
-        
         let hud = HudLayer.main
         hud.vcDelegate = self
-        self.view.addSubview(hud)
-        StopWatch.isPaused = false
+        gameView?.addSubview(hud)
+        StopWatch.isPaused = true
         
     }
     
@@ -87,9 +92,8 @@ extension GameViewController {
             scene.startGame()
         }
         let quit = UIAlertAction(title: "Outta Here", style: .cancel) { (action) in
-            let landingView = LandingView(frame: self.view.frame)
-            landingView.delegate = self
-            self.view = landingView
+            
+            self.view = self.landingView
         }
         
         alert.addAction(replay)
@@ -99,20 +103,40 @@ extension GameViewController {
         
     }
     
-
+    fileprivate func menuAlertView() {
+        
+        let alert = UIAlertController(title: "Menu", message: nil, preferredStyle: .alert)
+        let replay = UIAlertAction(title: "Return", style: .default) { (action) in
+            HudLayer.main.gsDelegate?.resumeGameFromMenu()
+        }
+        
+        let quit = UIAlertAction(title: "Quit", style: .cancel) { (action) in
+            (self.gameView?.scene as! GameScene).resetScene()
+            
+            self.view = self.landingView
+        }
+        
+        alert.addAction(replay)
+        alert.addAction(quit)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     
 }
 
 extension GameViewController: HUDToVCDelegate {
-    func showMenu(alert: UIAlertController) {
-        self.present(alert, animated: true, completion: nil)
+    func showMenu() {
+        menuAlertView()
     }
 }
 
 extension GameViewController: LandingViewDelegate {
     
     func startGameTapped() {
-        loadGameScene()
+        self.view = gameView
+        (self.gameView?.scene as! GameScene).startGame()
+      
     }
     
     //Deprecated, remove when confirmed

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol HUDToVCDelegate: class {
-    func showMenu(alert: UIAlertController)
+    func showMenu()
 }
 
 protocol HUDToGSDelegate: class {
@@ -61,7 +61,7 @@ class HudLayer: UIView {
     
     @objc private func menuButtonAction() {
         gsDelegate?.pauseGameForMenu()
-        vcDelegate?.showMenu(alert: menuAlertView())
+        vcDelegate?.showMenu()
     }
     
     func setTimer(to seconds: Int) {
@@ -81,24 +81,6 @@ class HudLayer: UIView {
     func showNew(score: Int) {
         
         scoreLabel.text = "Score: \(score)"
-        
-    }
-    
-    fileprivate func menuAlertView() -> UIAlertController{
-        
-        let alert = UIAlertController(title: "Oh Boy", message: "Bunny was crushed by falling heads.", preferredStyle: .alert)
-        let replay = UIAlertAction(title: "Replay", style: .default) { (action) in
-            
-        }
-        
-        let quit = UIAlertAction(title: "Outta Here", style: .cancel) { (action) in
-            self.gsDelegate?.resumeGameFromMenu()
-        }
-        
-        alert.addAction(replay)
-        alert.addAction(quit)
-        
-        return alert
         
     }
     
