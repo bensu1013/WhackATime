@@ -99,29 +99,13 @@ extension GameViewController {
         
     }
     
-    fileprivate func menuAlert() {
-        
-        let alert = UIAlertController(title: "Oh Boy", message: "Bunny was crushed by falling heads.", preferredStyle: .alert)
-        let replay = UIAlertAction(title: "Replay", style: .default) { (action) in
-            
-        }
-        
-        let quit = UIAlertAction(title: "Outta Here", style: .cancel) { (action) in
-            
-        }
-        
-        alert.addAction(replay)
-        alert.addAction(quit)
-        
-        self.present(alert, animated: true, completion: nil)
-        
-    }
+
     
 }
 
 extension GameViewController: HUDToVCDelegate {
-    func showMenu() {
-        menuAlert()
+    func showMenu(alert: UIAlertController) {
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

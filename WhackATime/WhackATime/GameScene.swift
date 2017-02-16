@@ -25,7 +25,6 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         
         hud.gsDelegate = self
-        
         self.physicsWorld.contactDelegate = self
         self.addChild(RainFactory.droplets)
         self.addChild(CloudFactory.clouds)
@@ -123,14 +122,17 @@ class GameScene: SKScene {
 extension GameScene: HUDToGSDelegate {
     
     func pauseGameForMenu() {
-        self.speed = 0
-        if let drops = RainFactory.droplets.children as? [Droplet] {
-            for drop in drops {
-                
-                drop.physicsBody?.pinned = true
-                
-            }
-        }
+        
+        StopWatch.isPaused = true
+        self.isPaused = true
+
+    }
+    
+    func resumeGameFromMenu() {
+        
+        StopWatch.isPaused = false
+        self.isPaused = false
+
     }
     
 }
