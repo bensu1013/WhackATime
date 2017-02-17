@@ -11,8 +11,6 @@ import UIKit
 
 protocol LandingViewDelegate: class {
     func startGameTapped()
-    func checkScoresTapped()
-    func creditsTapped()
 }
 
 class LandingView: UIView {
@@ -43,14 +41,15 @@ class LandingView: UIView {
     }
     
     @objc fileprivate func checkScoresAction() {
-//        delegate?.checkScoresTapped()
+
         print("checking scores")
         let scoreView = ScoreView(frame: self.frame)
         self.addSubview(scoreView)
     }
     
     @objc fileprivate func creditsAction() {
-        delegate?.creditsTapped()
+        let creditView = CreditView(frame: self.frame)
+        self.addSubview(creditView)
     }
     
 }

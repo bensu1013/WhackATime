@@ -16,9 +16,9 @@ class ScoreView: UIView {
     
     
     override init(frame: CGRect) {
-        super.init(frame: CGRect(x: frame.width * 0.2, y: frame.height * 0.15, width: frame.width * 0.6, height: frame.height * 0.7))
+        super.init(frame: frame)
         backgroundColor = UIColor.green
-        alpha = 0.5
+        alpha = 0.8
         textField.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.2, width: frame.width * 0.4, height: frame.height * 0.5)
         textField.backgroundColor = UIColor.clear
         textField.textAlignment = .center
@@ -40,7 +40,7 @@ class ScoreView: UIView {
         
         textField.text = scoreText
         
-        doneButton.frame = CGRect(x: frame.width * 0.35, y: frame.height * 0.75, width: frame.width * 0.3, height: frame.height * 0.1)
+        doneButton.frame = CGRect(x: frame.width * 0.35, y: frame.height * 0.7, width: frame.width * 0.3, height: frame.height * 0.1)
         doneButton.addTarget(self, action: #selector(doneButtonAction), for: .touchUpInside)
         doneButton.backgroundColor = UIColor.green
         doneButton.setTitle("Done", for: .normal)

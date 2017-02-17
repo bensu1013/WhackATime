@@ -17,10 +17,9 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadLandingView()
         loadGameScene()
-        
+        loadLandingView()
+        self.view = landingView
     }
 
     override var shouldAutorotate: Bool {
@@ -42,12 +41,6 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
-    }
-    
-    fileprivate func loadLandingView() {
-        landingView = LandingView(frame: view.frame)
-        landingView?.delegate = self
-        self.view = landingView
     }
     
     fileprivate func loadGameScene() {
@@ -78,6 +71,11 @@ class GameViewController: UIViewController {
         gameView?.addSubview(hud)
         StopWatch.isPaused = true
         
+    }
+    
+    fileprivate func loadLandingView() {
+        landingView = LandingView(frame: view.frame)
+        landingView?.delegate = self
     }
     
 }
@@ -137,15 +135,6 @@ extension GameViewController: LandingViewDelegate {
         self.view = gameView
         (self.gameView?.scene as! GameScene).startGame()
       
-    }
-    
-    //Deprecated, remove when confirmed
-    func checkScoresTapped() {
-        
-    }
-    
-    func creditsTapped() {
-        
     }
     
 }
