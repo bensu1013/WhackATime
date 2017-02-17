@@ -16,7 +16,7 @@ protocol LandingViewDelegate: class {
 class LandingView: UIView {
     
     weak var delegate: LandingViewDelegate?
-    
+
     var titleLabel = UILabel()
     var startGame = UIButton()
     var checkScores = UIButton()
@@ -24,8 +24,9 @@ class LandingView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        self.backgroundColor = UIColor.blue
+//        	R: 93 G: 188 B: 210
+      
+        self.backgroundColor = UIColor(colorLiteralRed: 0/255, green: 230/255, blue: 240/255, alpha: 1)
         loadSubviews()
         
     }
@@ -65,6 +66,8 @@ extension LandingView {
         loadCreditsButton()
         
     }
+    
+  
     
     private func loadTitleLabel() {
         titleLabel.frame = CGRect(x: frame.width * 0.2, y: frame.height * 0.1, width: frame.width * 0.6, height: frame.height * 0.15)
