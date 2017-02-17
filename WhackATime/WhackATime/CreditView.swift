@@ -19,19 +19,9 @@ class CreditView: UIView {
         super.init(frame: frame)
         backgroundColor = UIColor.green
         alpha = 0.9
-        textField.frame = CGRect(x: frame.width * 0.25, y: frame.height * 0.2, width: frame.width * 0.5, height: frame.height * 0.6)
-        textField.backgroundColor = UIColor.clear
-        textField.textAlignment = .center
-        textField.isUserInteractionEnabled = false
-        self.addSubview(textField)
         
-        textField.text = "Thanks To:\n Kenney.nl for the awesome sprites\n Created By:\n Benjamin Su"
-        
-        doneButton.frame = CGRect(x: frame.width * 0.35, y: frame.height * 0.75, width: frame.width * 0.3, height: frame.height * 0.1)
-        doneButton.addTarget(self, action: #selector(doneButtonAction), for: .touchUpInside)
-        doneButton.backgroundColor = UIColor.green
-        doneButton.setTitle("Done", for: .normal)
-        self.addSubview(doneButton)
+        loadTextField()
+        loadDoneButton()
         
     }
     
@@ -46,6 +36,27 @@ class CreditView: UIView {
     @objc func doneButtonAction() {
         self.removeFromSuperview()
     }
+
+}
+
+extension CreditView {
     
+    func loadTextField() {
+        textField.frame = CGRect(x: frame.width * 0.25, y: frame.height * 0.2, width: frame.width * 0.5, height: frame.height * 0.6)
+        textField.backgroundColor = UIColor.clear
+        textField.textAlignment = .center
+        textField.isUserInteractionEnabled = false
+        self.addSubview(textField)
+        
+        textField.text = "Thanks To:\n Kenney.nl for the awesome sprites\n Created By:\n Benjamin Su"
+        
+    }
     
+    func loadDoneButton() {
+        doneButton.frame = CGRect(x: frame.width * 0.35, y: frame.height * 0.75, width: frame.width * 0.3, height: frame.height * 0.1)
+        doneButton.addTarget(self, action: #selector(doneButtonAction), for: .touchUpInside)
+        doneButton.backgroundColor = UIColor.green
+        doneButton.setTitle("Done", for: .normal)
+        self.addSubview(doneButton)
+    }
 }

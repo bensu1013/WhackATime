@@ -24,11 +24,13 @@ class CloudFactory {
         SKTexture(imageNamed: "cloud8"),
         SKTexture(imageNamed: "cloud9")]
     
-    static func cycleClouds(delay: Double) -> SKAction {
+    static func cycleClouds() -> SKAction {
         
-        let timeDelay = SKAction.wait(forDuration: delay)
+        let delay = arc4random_uniform(UInt32(50)) / 10
+        
+        let timeDelay = SKAction.wait(forDuration: Double(delay))
         let rain = SKAction.run { createCloud() }
-        return SKAction.repeatForever(SKAction.sequence([timeDelay, rain]))
+        return SKAction.sequence([timeDelay, rain])
         
     }
     

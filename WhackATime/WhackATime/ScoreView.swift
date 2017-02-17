@@ -17,8 +17,32 @@ class ScoreView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         backgroundColor = UIColor.green
         alpha = 0.8
+        
+        loadTextField()
+        loadDoneButton()
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        print("bye bye scoreview")
+    }
+    
+    @objc func doneButtonAction() {
+        self.removeFromSuperview()
+    }
+    
+}
+
+extension ScoreView {
+    
+    func loadTextField() {
         textField.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.2, width: frame.width * 0.4, height: frame.height * 0.5)
         textField.backgroundColor = UIColor.clear
         textField.textAlignment = .center
@@ -39,25 +63,13 @@ class ScoreView: UIView {
         }
         
         textField.text = scoreText
-        
+    }
+    
+    func loadDoneButton() {
         doneButton.frame = CGRect(x: frame.width * 0.35, y: frame.height * 0.7, width: frame.width * 0.3, height: frame.height * 0.1)
         doneButton.addTarget(self, action: #selector(doneButtonAction), for: .touchUpInside)
         doneButton.backgroundColor = UIColor.green
         doneButton.setTitle("Done", for: .normal)
         self.addSubview(doneButton)
-        
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    deinit {
-        print("bye bye scoreview")
-    }
-    
-    @objc func doneButtonAction() {
-        self.removeFromSuperview()
-    }
-    
 }

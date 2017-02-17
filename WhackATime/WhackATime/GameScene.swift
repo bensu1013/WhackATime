@@ -63,20 +63,18 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        isPaused ? print("pause") : print("not paused")
-        print(1)
+        
         bunny?.update()
         StopWatch.updateTime(current: currentTime)
         hud.setTimer(to: StopWatch.elapsedTimeInSeconds())
         createRainFall()
-        
+        createClouds()
     }
     
     func startGame() {
         
         self.isPaused = false
         StopWatch.isPaused = false
-        self.run(CloudFactory.cycleClouds(delay: 5))
         bunny?.position.x = 0
         
     }
@@ -92,6 +90,18 @@ class GameScene: SKScene {
         ScoreController.main.addNewScore()
         hud.setTimer(to: 0)
         hud.showNew(score: 0)
+        
+    }
+    
+    fileprivate func createClouds() {
+        
+        if let _ = self.action(forKey: "createCloud") {
+            
+        } else {
+            print(2)
+            self.run(CloudFactory.cycleClouds(), withKey: "createCloud")
+        }
+        
         
     }
     

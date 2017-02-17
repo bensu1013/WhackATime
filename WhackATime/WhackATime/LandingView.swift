@@ -16,6 +16,8 @@ protocol LandingViewDelegate: class {
 class LandingView: UIView {
     
     weak var delegate: LandingViewDelegate?
+    
+    var titleLabel = UILabel()
     var startGame = UIButton()
     var checkScores = UIButton()
     var credits = UIButton()
@@ -41,8 +43,6 @@ class LandingView: UIView {
     }
     
     @objc fileprivate func checkScoresAction() {
-
-        print("checking scores")
         let scoreView = ScoreView(frame: self.frame)
         self.addSubview(scoreView)
     }
@@ -59,13 +59,22 @@ extension LandingView {
     
     fileprivate func loadSubviews() {
         
+        loadTitleLabel()
         loadStartGameButton()
         loadCheckScoresButton()
         loadCreditsButton()
         
     }
     
-    fileprivate func loadStartGameButton() {
+    private func loadTitleLabel() {
+        titleLabel.frame = CGRect(x: frame.width * 0.2, y: frame.height * 0.1, width: frame.width * 0.6, height: frame.height * 0.15)
+        titleLabel.backgroundColor = UIColor.clear
+        titleLabel.textAlignment = .center
+        titleLabel.text = "Name Placeholder 4000"
+        self.addSubview(titleLabel)
+    }
+    
+    private func loadStartGameButton() {
         startGame.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.4, width: frame.width * 0.4, height: frame.height * 0.12)
         startGame.backgroundColor = UIColor.green
         startGame.setTitle("Start", for: .normal)
@@ -73,7 +82,7 @@ extension LandingView {
         self.addSubview(startGame)
     }
     
-    fileprivate func loadCheckScoresButton() {
+    private func loadCheckScoresButton() {
         checkScores.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.53, width: frame.width * 0.4, height: frame.height * 0.12)
         checkScores.backgroundColor = UIColor.yellow
         checkScores.setTitle("Scores", for: .normal)
@@ -81,7 +90,7 @@ extension LandingView {
         self.addSubview(checkScores)
     }
     
-    fileprivate func loadCreditsButton() {
+    private func loadCreditsButton() {
         credits.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.66, width: frame.width * 0.4, height: frame.height * 0.12)
         credits.backgroundColor = UIColor.brown
         credits.setTitle("Credits", for: .normal)
