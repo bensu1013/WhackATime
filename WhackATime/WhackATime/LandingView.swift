@@ -24,7 +24,6 @@ class LandingView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        	R: 93 G: 188 B: 210
       
         self.backgroundColor = UIColor(colorLiteralRed: 0/255, green: 230/255, blue: 240/255, alpha: 1)
         loadSubviews()
@@ -73,7 +72,8 @@ extension LandingView {
         titleLabel.frame = CGRect(x: frame.width * 0.2, y: frame.height * 0.1, width: frame.width * 0.6, height: frame.height * 0.15)
         titleLabel.backgroundColor = UIColor.clear
         titleLabel.textAlignment = .center
-        titleLabel.text = "Name Placeholder 4000"
+        titleLabel.font = UIFont(name: "Futura-CondensedExtraBold", size: 24)
+        titleLabel.text = "Pop Em'"
         self.addSubview(titleLabel)
     }
     

@@ -76,8 +76,6 @@ class Bunny: SKSpriteNode {
     
     private func stayStill() {
         
-        self.run(SKAction.wait(forDuration: 1), withKey: "stayStill")
-        
         self.run(SKAction.repeatForever(SKAction.animate(with: [readyTexture, standTexture], timePerFrame: 0.25)), withKey: "standing")
         
         let wait = SKAction.wait(forDuration: 2)
@@ -94,45 +92,54 @@ class Bunny: SKSpriteNode {
     
     private func moveLeft() {
         
-        let distance = CGFloat(arc4random_uniform(100)) + 100
-        
-        let dura = Double(distance / 100)
-        
-        self.xScale = -1
-        
-        self.run(SKAction.repeatForever(SKAction.animate(with: walkTexture, timePerFrame: 0.15)), withKey: "moving")
-        
-        let move = SKAction.moveBy(x: -distance, y: 0, duration: dura)
-        
-        let done = SKAction.run { self.removeAction(forKey: "moving") }
-        
-        let sequence = SKAction.sequence([move, done])
-        
-        self.run(sequence, withKey: "moveLeft")
-        
-        direction = .left
-        
+        if self.position.x < -750 {
+            moveRight()
+        } else {
+            
+            let distance = CGFloat(arc4random_uniform(100)) + 100
+            
+            let dura = Double(distance / 100)
+            
+            self.xScale = -1
+            
+            self.run(SKAction.repeatForever(SKAction.animate(with: walkTexture, timePerFrame: 0.15)), withKey: "moving")
+            
+            let move = SKAction.moveBy(x: -distance, y: 0, duration: dura)
+            
+            let done = SKAction.run { self.removeAction(forKey: "moving") }
+            
+            let sequence = SKAction.sequence([move, done])
+            
+            self.run(sequence, withKey: "moveLeft")
+            
+            direction = .left
+        }
     }
     
     private func moveRight() {
         
-        let distance = CGFloat(arc4random_uniform(100)) + 100
-        
-        let dura = Double(distance / 100)
-        
-        self.xScale = 1
-        
-        self.run(SKAction.repeatForever(SKAction.animate(with: walkTexture, timePerFrame: 0.15)), withKey: "moving")
-        
-        let move = SKAction.moveBy(x: distance, y: 0, duration: dura)
-        
-        let done = SKAction.run { self.removeAction(forKey: "moving") }
-        
-        let sequence = SKAction.sequence([move, done])
-        
-        self.run(sequence, withKey: "moveRight")
-        
-        direction = .right
+        if self.position.x > 650 {
+            moveLeft()
+        } else {
+            
+            let distance = CGFloat(arc4random_uniform(100)) + 100
+            
+            let dura = Double(distance / 100)
+            
+            self.xScale = 1
+            
+            self.run(SKAction.repeatForever(SKAction.animate(with: walkTexture, timePerFrame: 0.15)), withKey: "moving")
+            
+            let move = SKAction.moveBy(x: distance, y: 0, duration: dura)
+            
+            let done = SKAction.run { self.removeAction(forKey: "moving") }
+            
+            let sequence = SKAction.sequence([move, done])
+            
+            self.run(sequence, withKey: "moveRight")
+            
+            direction = .right
+        }
     }
     
     private func sitDown() {

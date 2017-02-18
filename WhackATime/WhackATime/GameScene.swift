@@ -30,8 +30,7 @@ class GameScene: SKScene {
         self.addChild(CloudFactory.clouds)
         bunny = self.childNode(withName: "bunny") as? Bunny
         
-        startGame()
-        
+        self.speed = 3.0
     }
     
     deinit {
