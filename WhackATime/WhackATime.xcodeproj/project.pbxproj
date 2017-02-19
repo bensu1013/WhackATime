@@ -28,6 +28,8 @@
 		FD466EDA1E48FC1300BA214D /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD466ED91E48FC1300BA214D /* CreditView.swift */; };
 		FD466EDC1E4D660C00BA214D /* CloudFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD466EDB1E4D660C00BA214D /* CloudFactory.swift */; };
 		FD466EE11E4D66EC00BA214D /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD466EE01E4D66EC00BA214D /* Cloud.swift */; };
+		FD466EE31E591D7F00BA214D /* LandingViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD466EE21E591D7F00BA214D /* LandingViewBackground.swift */; };
+		FD466EE71E591DF500BA214D /* LandingScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FD466EE61E591DF500BA214D /* LandingScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		FD466ED91E48FC1300BA214D /* CreditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
 		FD466EDB1E4D660C00BA214D /* CloudFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudFactory.swift; sourceTree = "<group>"; };
 		FD466EE01E4D66EC00BA214D /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
+		FD466EE21E591D7F00BA214D /* LandingViewBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewBackground.swift; sourceTree = "<group>"; };
+		FD466EE61E591DF500BA214D /* LandingScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandingScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 			children = (
 				FD14152A1E4274DD00B946AC /* AppDelegate.swift */,
 				FD14152C1E4274DD00B946AC /* GameScene.sks */,
+				FD466EE61E591DF500BA214D /* LandingScene.sks */,
 				FD14152E1E4274DD00B946AC /* Actions.sks */,
 				FD1415301E4274DD00B946AC /* GameScene.swift */,
 				FD466EDF1E4D66BA00BA214D /* Bodies */,
@@ -109,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				FD1415501E46C76D00B946AC /* LandingView.swift */,
+				FD466EE21E591D7F00BA214D /* LandingViewBackground.swift */,
 				FD466ED71E48FBF300BA214D /* ScoreView.swift */,
 				FD466ED91E48FC1300BA214D /* CreditView.swift */,
 			);
@@ -203,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD466EE71E591DF500BA214D /* LandingScene.sks in Resources */,
 				FD1415361E4274DD00B946AC /* Main.storyboard in Resources */,
 				FD14152D1E4274DD00B946AC /* GameScene.sks in Resources */,
 				FD1415381E4274DD00B946AC /* Assets.xcassets in Resources */,
@@ -227,6 +234,7 @@
 				FD1415531E46FE1000B946AC /* RainFactory.swift in Sources */,
 				FD1415431E42788900B946AC /* Droplet.swift in Sources */,
 				FD14154F1E46C76600B946AC /* IntroView.swift in Sources */,
+				FD466EE31E591D7F00BA214D /* LandingViewBackground.swift in Sources */,
 				FD466EDC1E4D660C00BA214D /* CloudFactory.swift in Sources */,
 				FD14152B1E4274DD00B946AC /* AppDelegate.swift in Sources */,
 				FD1415511E46C76D00B946AC /* LandingView.swift in Sources */,

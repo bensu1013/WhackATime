@@ -46,6 +46,7 @@ class Bunny: SKSpriteNode {
                 movementController()
             }
         }
+        
     }
     
     private func movementController() {

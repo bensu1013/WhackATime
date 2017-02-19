@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SpriteKit
 
 protocol LandingViewDelegate: class {
     func startGameTapped()
@@ -22,10 +23,17 @@ class LandingView: UIView {
     var checkScores = UIButton()
     var credits = UIButton()
     
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-      
-        self.backgroundColor = UIColor(colorLiteralRed: 0/255, green: 230/255, blue: 240/255, alpha: 1)
+        
+        let backView = SKView(frame: frame)
+        let landingScene = SKScene(fileNamed: "LandingScene")
+        landingScene?.scaleMode = .aspectFill
+        backView.presentScene(landingScene)
+        self.addSubview(backView)
+        
         loadSubviews()
         
     }

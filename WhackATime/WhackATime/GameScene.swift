@@ -29,8 +29,7 @@ class GameScene: SKScene {
         self.addChild(RainFactory.droplets)
         self.addChild(CloudFactory.clouds)
         bunny = self.childNode(withName: "bunny") as? Bunny
-        
-        self.speed = 3.0
+
     }
     
     deinit {
@@ -97,7 +96,6 @@ class GameScene: SKScene {
         if let _ = self.action(forKey: "createCloud") {
             
         } else {
-            print(2)
             self.run(CloudFactory.cycleClouds(), withKey: "createCloud")
         }
         
