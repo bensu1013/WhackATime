@@ -73,7 +73,7 @@ class GameScene: SKScene {
         
         self.isPaused = false
         StopWatch.isPaused = false
-        bunny?.position.x = 0
+        bunny?.reset()
         
     }
     

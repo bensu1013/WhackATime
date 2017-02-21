@@ -22,6 +22,5 @@ class LandingScene: SKScene {
         bunny?.run(repetition)
         
     }
-    
 
 }

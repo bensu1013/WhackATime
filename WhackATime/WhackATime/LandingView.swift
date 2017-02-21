@@ -80,7 +80,7 @@ extension LandingView {
         titleLabel.frame = CGRect(x: frame.width * 0.2, y: frame.height * 0.1, width: frame.width * 0.6, height: frame.height * 0.15)
         titleLabel.backgroundColor = UIColor.clear
         titleLabel.textAlignment = .center
-        titleLabel.font = UIFont(name: "Futura-CondensedExtraBold", size: 24)
+        titleLabel.font = Fonts.landing
         titleLabel.text = "Pop Em'"
         self.addSubview(titleLabel)
     }

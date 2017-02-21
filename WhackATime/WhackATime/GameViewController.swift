@@ -89,7 +89,7 @@ extension GameViewController {
         let replay = UIAlertAction(title: "Replay", style: .default) { (action) in
             scene.startGame()
         }
-        let quit = UIAlertAction(title: "Outta Here", style: .cancel) { (action) in
+        let quit = UIAlertAction(title: "Menu", style: .cancel) { (action) in
             
             self.view = self.landingView
         }
@@ -103,8 +103,8 @@ extension GameViewController {
     
     fileprivate func menuAlertView() {
         
-        let alert = UIAlertController(title: "Menu", message: nil, preferredStyle: .alert)
-        let replay = UIAlertAction(title: "Return", style: .default) { (action) in
+        let alert = UIAlertController(title: "Paused", message: nil, preferredStyle: .alert)
+        let replay = UIAlertAction(title: "Resume", style: .default) { (action) in
             HudLayer.main.gsDelegate?.resumeGameFromMenu()
         }
         

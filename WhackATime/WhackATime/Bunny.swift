@@ -26,6 +26,13 @@ class Bunny: SKSpriteNode {
     private var walkTexture = [SKTexture(imageNamed: "bunny1_walk1"),
                                SKTexture(imageNamed: "bunny1_walk2")]
     
+    func reset() {
+        
+        self.position.x = 0
+        self.texture = readyTexture
+        
+    }
+    
     func update() {
         
         switch direction {

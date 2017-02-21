@@ -17,8 +17,7 @@ class CreditView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.green
-        alpha = 0.9
+        backgroundColor = UIColor.blue
         
         loadTextField()
         loadDoneButton()
@@ -30,7 +29,7 @@ class CreditView: UIView {
     }
     
     deinit {
-        print("bye bye scoreview")
+        print("bye bye creditview")
     }
     
     @objc func doneButtonAction() {
@@ -42,13 +41,13 @@ class CreditView: UIView {
 extension CreditView {
     
     func loadTextField() {
-        textField.frame = CGRect(x: frame.width * 0.25, y: frame.height * 0.2, width: frame.width * 0.5, height: frame.height * 0.6)
+        textField.frame = CGRect(x: frame.width * 0.25, y: frame.height * 0.1, width: frame.width * 0.5, height: frame.height * 0.65)
         textField.backgroundColor = UIColor.clear
         textField.textAlignment = .center
         textField.isUserInteractionEnabled = false
         self.addSubview(textField)
-        
-        textField.text = "Thanks To:\n Kenney.nl for the awesome sprites\n Created By:\n Benjamin Su"
+        textField.font = Fonts.credit
+        textField.text = "Thanks To:\n Kenney.nl for the awesome sprites\n\n Created By:\n Benjamin Su"
         
     }
     

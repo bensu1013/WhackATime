@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD02DC681E5CCFE600D38F37 /* ScoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD02DC661E5CCFE600D38F37 /* ScoreData.xcdatamodeld */; };
 		FD14152B1E4274DD00B946AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD14152A1E4274DD00B946AC /* AppDelegate.swift */; };
 		FD14152D1E4274DD00B946AC /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FD14152C1E4274DD00B946AC /* GameScene.sks */; };
 		FD14152F1E4274DD00B946AC /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FD14152E1E4274DD00B946AC /* Actions.sks */; };
@@ -30,9 +31,11 @@
 		FD466EE11E4D66EC00BA214D /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD466EE01E4D66EC00BA214D /* Cloud.swift */; };
 		FD466EE31E591D7F00BA214D /* LandingViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD466EE21E591D7F00BA214D /* LandingViewBackground.swift */; };
 		FD466EE71E591DF500BA214D /* LandingScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FD466EE61E591DF500BA214D /* LandingScene.sks */; };
+		FDF224FF1E5CCA0000F4E282 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF224FE1E5CCA0000F4E282 /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD02DC671E5CCFE600D38F37 /* ScoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ScoreData.xcdatamodel; sourceTree = "<group>"; };
 		FD1415271E4274DD00B946AC /* WhackATime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhackATime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD14152A1E4274DD00B946AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD14152C1E4274DD00B946AC /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 		FD466EE01E4D66EC00BA214D /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		FD466EE21E591D7F00BA214D /* LandingViewBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewBackground.swift; sourceTree = "<group>"; };
 		FD466EE61E591DF500BA214D /* LandingScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandingScene.sks; sourceTree = "<group>"; };
+		FDF224FE1E5CCA0000F4E282 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD02DC601E5CCE1300D38F37 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FD14152C1E4274DD00B946AC /* GameScene.sks */,
+				FD466EE61E591DF500BA214D /* LandingScene.sks */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
 		FD14151E1E4274DD00B946AC = {
 			isa = PBXGroup;
 			children = (
@@ -91,20 +104,18 @@
 			isa = PBXGroup;
 			children = (
 				FD14152A1E4274DD00B946AC /* AppDelegate.swift */,
-				FD14152C1E4274DD00B946AC /* GameScene.sks */,
-				FD466EE61E591DF500BA214D /* LandingScene.sks */,
 				FD14152E1E4274DD00B946AC /* Actions.sks */,
+				FD02DC601E5CCE1300D38F37 /* Scenes */,
 				FD1415301E4274DD00B946AC /* GameScene.swift */,
+				FD466EDD1E4D666A00BA214D /* Factories */,
 				FD466EDF1E4D66BA00BA214D /* Bodies */,
 				FD466EDE1E4D668A00BA214D /* Model */,
-				FD466EDD1E4D666A00BA214D /* Factories */,
 				FD466ED61E48FBDD00BA214D /* Landing */,
+				FDF225001E5CCDC900F4E282 /* Support */,
 				FD1415321E4274DD00B946AC /* GameViewController.swift */,
 				FD14154E1E46C76600B946AC /* IntroView.swift */,
 				FD1415461E450EAF00B946AC /* HUDLayer.swift */,
-				FD1415341E4274DD00B946AC /* Main.storyboard */,
 				FD1415371E4274DD00B946AC /* Assets.xcassets */,
-				FD1415391E4274DD00B946AC /* LaunchScreen.storyboard */,
 				FD14153C1E4274DD00B946AC /* Info.plist */,
 			);
 			path = WhackATime;
@@ -135,6 +146,7 @@
 			children = (
 				FD14154A1E45898E00B946AC /* StopWatch.swift */,
 				FD1415481E45823800B946AC /* ScoreController.swift */,
+				FD02DC661E5CCFE600D38F37 /* ScoreData.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -148,6 +160,16 @@
 				FD466EE01E4D66EC00BA214D /* Cloud.swift */,
 			);
 			name = Bodies;
+			sourceTree = "<group>";
+		};
+		FDF225001E5CCDC900F4E282 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				FDF224FE1E5CCA0000F4E282 /* Fonts.swift */,
+				FD1415341E4274DD00B946AC /* Main.storyboard */,
+				FD1415391E4274DD00B946AC /* LaunchScreen.storyboard */,
+			);
+			name = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +256,7 @@
 				FD1415531E46FE1000B946AC /* RainFactory.swift in Sources */,
 				FD1415431E42788900B946AC /* Droplet.swift in Sources */,
 				FD14154F1E46C76600B946AC /* IntroView.swift in Sources */,
+				FD02DC681E5CCFE600D38F37 /* ScoreData.xcdatamodeld in Sources */,
 				FD466EE31E591D7F00BA214D /* LandingViewBackground.swift in Sources */,
 				FD466EDC1E4D660C00BA214D /* CloudFactory.swift in Sources */,
 				FD14152B1E4274DD00B946AC /* AppDelegate.swift in Sources */,
@@ -241,6 +264,7 @@
 				FD466ED81E48FBF300BA214D /* ScoreView.swift in Sources */,
 				FD466EE11E4D66EC00BA214D /* Cloud.swift in Sources */,
 				FD14154B1E45898E00B946AC /* StopWatch.swift in Sources */,
+				FDF224FF1E5CCA0000F4E282 /* Fonts.swift in Sources */,
 				FD466EDA1E48FC1300BA214D /* CreditView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +430,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FD02DC661E5CCFE600D38F37 /* ScoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FD02DC671E5CCFE600D38F37 /* ScoreData.xcdatamodel */,
+			);
+			currentVersion = FD02DC671E5CCFE600D38F37 /* ScoreData.xcdatamodel */;
+			name = ScoreData.xcdatamodeld;
+			path = ../ScoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FD14151F1E4274DD00B946AC /* Project object */;
 }

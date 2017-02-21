@@ -19,7 +19,6 @@ class ScoreView: UIView {
         super.init(frame: frame)
         
         backgroundColor = UIColor.green
-        alpha = 0.8
         
         loadTextField()
         loadDoneButton()
@@ -43,9 +42,10 @@ class ScoreView: UIView {
 extension ScoreView {
     
     func loadTextField() {
-        textField.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.2, width: frame.width * 0.4, height: frame.height * 0.5)
+        textField.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.1, width: frame.width * 0.4, height: frame.height * 0.65)
         textField.backgroundColor = UIColor.clear
         textField.textAlignment = .center
+        textField.font = Fonts.score
         textField.isUserInteractionEnabled = false
         self.addSubview(textField)
         
@@ -66,7 +66,7 @@ extension ScoreView {
     }
     
     func loadDoneButton() {
-        doneButton.frame = CGRect(x: frame.width * 0.35, y: frame.height * 0.7, width: frame.width * 0.3, height: frame.height * 0.1)
+        doneButton.frame = CGRect(x: frame.width * 0.35, y: frame.height * 0.8, width: frame.width * 0.3, height: frame.height * 0.1)
         doneButton.addTarget(self, action: #selector(doneButtonAction), for: .touchUpInside)
         doneButton.backgroundColor = UIColor.green
         doneButton.setTitle("Done", for: .normal)
