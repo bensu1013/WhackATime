@@ -75,7 +75,7 @@ class ScoreController {
 
 class DataStore {
     
-    var messages = [Score]()
+    var scores = [Scores]()
     
     static let sharedInstance = DataStore()
     
@@ -130,10 +130,10 @@ class DataStore {
     func fetchData() {
         let context = persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<Score>(entityName: "Score")
+        let fetchRequest = NSFetchRequest<Scores>(entityName: "Scores")
         
         do {
-            messages = try context.fetch(fetchRequest)
+            scores = try context.fetch(fetchRequest)
         } catch {
             
         }
@@ -144,14 +144,12 @@ class DataStore {
         
         let context = persistentContainer.viewContext
         
-        let entity = NSEntityDescription.entity(forEntityName: "Score", in: context)
-        let task = NSManagedObject(entity: entity!, insertInto: context) as! Score
-        
-        task.points = msg
+        let entity = NSEntityDescription.entity(forEntityName: "Scores", in: context)
+        let task = NSManagedObject(entity: entity!, insertInto: context) as! Scores
         
         do {
             try context.save()
-            messages.append(task)
+            scores.append(task)
         }catch{
             
         }

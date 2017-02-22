@@ -20,6 +20,21 @@ class GameViewController: UIViewController {
         loadGameScene()
         loadLandingView()
         self.view = landingView
+        
+        DataStore.sharedInstance.fetchData()
+        
+        if DataStore.sharedInstance.scores.isEmpty {
+            print("generate")
+            DataStore.sharedInstance.generateNewData(msg: "one")
+        }
+        print(DataStore.sharedInstance.scores.count)
+        
+        DataStore.sharedInstance.scores[0].first = "10"
+        
+        print(DataStore.sharedInstance.scores[0].first)
+        
+        DataStore.sharedInstance.saveContext()
+        
     }
 
     override var shouldAutorotate: Bool {

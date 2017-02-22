@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Score" representedClassName="Score" syncable="YES" codeGenerationType="class">
-        <attribute name="points" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Scores" representedClassName="Scores" syncable="YES" codeGenerationType="class">
+        <attribute name="eighth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fifth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="first" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fourth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ninth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="second" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="seventh" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sixth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tenth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="third" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Score" positionX="-54" positionY="-9" width="128" height="60"/>
+        <element name="Scores" positionX="-54" positionY="-9" width="128" height="195"/>
     </elements>
 </model>
