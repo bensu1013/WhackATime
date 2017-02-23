@@ -16,8 +16,11 @@ class ScoreController {
     private var scoreHistory: [Int] = []
     private var currentScore: Int = 0
     private var comboCounter: Int = 0
-        
-    private init() {}
+    
+    private init() {
+        print("scorecontroller init")
+        scoreHistory = DataStore.sharedInstance.getScores()
+    }
     
     func resetCounters() {
         currentScore = 0
@@ -75,11 +78,53 @@ class ScoreController {
 
 class DataStore {
     
-    var scores = [Scores]()
-    
     static let sharedInstance = DataStore()
     
+    private var scores = [Scores]()
+    
     private init() {}
+    
+    func getScores() -> [Int] {
+        
+        var scoreArray = [Int]()
+        
+        if !scores.isEmpty {
+            
+            scoreArray.append(Int(scores[0].first!)!)
+            scoreArray.append(Int(scores[0].second!)!)
+            scoreArray.append(Int(scores[0].third!)!)
+            scoreArray.append(Int(scores[0].fourth!)!)
+            scoreArray.append(Int(scores[0].fifth!)!)
+            scoreArray.append(Int(scores[0].sixth!)!)
+            scoreArray.append(Int(scores[0].seventh!)!)
+            scoreArray.append(Int(scores[0].eighth!)!)
+            scoreArray.append(Int(scores[0].ninth!)!)
+            scoreArray.append(Int(scores[0].tenth!)!)
+            
+        }
+        
+        return scoreArray
+        
+    }
+    
+    func saveScores(values: [Int]) {
+        
+        if !scores.isEmpty {
+            scores[0].first = "\(values[0])"
+            scores[0].second = "\(values[1])"
+            scores[0].third = "\(values[2])"
+            scores[0].fourth = "\(values[3])"
+            scores[0].fifth = "\(values[4])"
+            scores[0].sixth = "\(values[5])"
+            scores[0].seventh = "\(values[6])"
+            scores[0].eighth = "\(values[7])"
+            scores[0].ninth = "\(values[8])"
+            scores[0].tenth = "\(values[9])"
+        }
+        
+        saveContext()
+    }
+    
     
     // MARK: - Core Data stack
     
@@ -138,14 +183,29 @@ class DataStore {
             
         }
         
+        if scores.isEmpty {
+            generateNewData()
+        }
+        
     }
     
-    func generateNewData(msg: String) {
+    func generateNewData() {
         
         let context = persistentContainer.viewContext
         
         let entity = NSEntityDescription.entity(forEntityName: "Scores", in: context)
         let task = NSManagedObject(entity: entity!, insertInto: context) as! Scores
+        
+        task.first = "0"
+        task.second = "0"
+        task.third = "0"
+        task.fourth = "0"
+        task.fifth = "0"
+        task.sixth = "0"
+        task.seventh = "0"
+        task.eighth = "0"
+        task.ninth = "0"
+        task.tenth = "0"
         
         do {
             try context.save()
@@ -155,7 +215,6 @@ class DataStore {
         }
         
         self.saveContext()
-        self.fetchData()
         
     }
     
