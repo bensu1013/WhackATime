@@ -41,4 +41,14 @@ struct Fonts {
         
     }
     
+    static var hudlayer: UIFont {
+        
+        let size = UIScreen.main.bounds.height / 28
+        
+        let font = UIFont(name: "Futura-CondensedExtraBold", size: size)
+        
+        return font!
+        
+    }
+    
 }
