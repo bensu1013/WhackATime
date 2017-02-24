@@ -13,7 +13,9 @@ struct Fonts {
     
     static var landing: UIFont {
         
-        let font = UIFont(name: "Futura-CondensedExtraBold", size: 32)
+        let size = UIScreen.main.bounds.height / 12
+        
+        let font = UIFont(name: "Futura-CondensedExtraBold", size: size)
         
         return font!
         
@@ -21,7 +23,9 @@ struct Fonts {
     
     static var score: UIFont {
         
-        let font = UIFont(name: "Futura-CondensedExtraBold", size: 18)
+        let size = UIScreen.main.bounds.height / 24
+        
+        let font = UIFont(name: "Futura-CondensedExtraBold", size: size)
         
         return font!
         
@@ -29,7 +33,9 @@ struct Fonts {
     
     static var credit: UIFont {
         
-        let font = UIFont(name: "Futura-CondensedExtraBold", size: 30)
+        let size = UIScreen.main.bounds.height / 16
+        
+        let font = UIFont(name: "Futura-CondensedExtraBold", size: size)
         
         return font!
         

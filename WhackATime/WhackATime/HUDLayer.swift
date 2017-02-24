@@ -39,7 +39,6 @@ class HudLayer: UIView {
         scoreLabel.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.64, y: 10, width: 100, height: 30)
         scoreLabel.backgroundColor = UIColor.clear
         scoreLabel.text = "Score: 0"
-        scoreLabel.textColor = UIColor.black
         self.addSubview(scoreLabel)
         
         
@@ -48,7 +47,7 @@ class HudLayer: UIView {
         timerLabel.text = "Time: 0:00"
         self.addSubview(timerLabel)
         
-        menuButton.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.9, y: 10, width: 100, height: 44)
+        menuButton.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.85, y: 10, width: 100, height: 30)
         menuButton.setTitle("Menu", for: .normal)
         menuButton.addTarget(self, action: #selector(menuButtonAction), for: .touchUpInside)
         self.addSubview(menuButton)
@@ -62,6 +61,19 @@ class HudLayer: UIView {
     @objc private func menuButtonAction() {
         gsDelegate?.pauseGameForMenu()
         vcDelegate?.showMenu()
+    }
+    
+    func setLabelColors(ipad: Bool) {
+        
+        if ipad {
+            scoreLabel.textColor = UIColor.white
+            timerLabel.textColor = UIColor.white
+            menuButton.setTitleColor(UIColor.white, for: .normal)
+        } else {
+            scoreLabel.textColor = UIColor.black
+            timerLabel.textColor = UIColor.black
+            menuButton.setTitleColor(UIColor.black, for: .normal)
+        }
     }
     
     func setTimer(to seconds: Int) {

@@ -30,7 +30,7 @@ class LandingView: UIView {
         
         let backView = SKView(frame: frame)
         let landingScene = SKScene(fileNamed: "LandingScene")
-        landingScene?.scaleMode = .aspectFill
+        landingScene?.scaleMode = .aspectFit
         backView.presentScene(landingScene)
         self.addSubview(backView)
         
@@ -78,6 +78,7 @@ extension LandingView {
     
     private func loadTitleLabel() {
         titleLabel.frame = CGRect(x: frame.width * 0.2, y: frame.height * 0.1, width: frame.width * 0.6, height: frame.height * 0.15)
+        titleLabel.layer.cornerRadius = 10
         titleLabel.backgroundColor = UIColor.clear
         titleLabel.textAlignment = .center
         titleLabel.font = Fonts.landing
@@ -87,6 +88,7 @@ extension LandingView {
     
     private func loadStartGameButton() {
         startGame.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.4, width: frame.width * 0.4, height: frame.height * 0.12)
+        startGame.layer.cornerRadius = 10
         startGame.backgroundColor = UIColor.green
         startGame.setTitle("Start", for: .normal)
         startGame.addTarget(self, action: #selector(startGameAction), for: .touchUpInside)
@@ -95,6 +97,7 @@ extension LandingView {
     
     private func loadCheckScoresButton() {
         checkScores.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.53, width: frame.width * 0.4, height: frame.height * 0.12)
+        checkScores.layer.cornerRadius = 10
         checkScores.backgroundColor = UIColor.yellow
         checkScores.setTitle("Scores", for: .normal)
         checkScores.addTarget(self, action: #selector(checkScoresAction), for: .touchUpInside)
@@ -103,6 +106,7 @@ extension LandingView {
     
     private func loadCreditsButton() {
         credits.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.66, width: frame.width * 0.4, height: frame.height * 0.12)
+        credits.layer.cornerRadius = 10
         credits.backgroundColor = UIColor.brown
         credits.setTitle("Credits", for: .normal)
         credits.addTarget(self, action: #selector(creditsAction), for: .touchUpInside)

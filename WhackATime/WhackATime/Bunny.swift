@@ -100,7 +100,7 @@ class Bunny: SKSpriteNode {
     
     private func moveLeft() {
         
-        if self.position.x < -600 {
+        if self.position.x < -575 {
             moveRight()
         } else {
             
@@ -126,7 +126,7 @@ class Bunny: SKSpriteNode {
     
     private func moveRight() {
         
-        if self.position.x > 600 {
+        if self.position.x > 575 {
             moveLeft()
         } else {
             

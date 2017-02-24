@@ -46,13 +46,15 @@ class GameViewController: UIViewController {
     fileprivate func loadGameScene() {
         gameView = SKView(frame: self.view.frame)
         
+        gameView?.backgroundColor = UIColor.white
+        
         // Load the SKScene from 'GameScene.sks'
         if let scene = SKScene(fileNamed: "GameScene") as? GameScene {
             
             
             
             // Set the scale mode to scale to fit the window
-            scene.scaleMode = .aspectFill
+            scene.scaleMode = .aspectFit
             
             // Present the scene
             gameView?.presentScene(scene)
