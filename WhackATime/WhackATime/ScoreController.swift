@@ -22,6 +22,12 @@ class ScoreController {
         scoreHistory = DataStore.sharedInstance.getScores()
     }
     
+    func saveScores() {
+        
+        DataStore.sharedInstance.saveScores(values: scoreHistory)
+        
+    }
+    
     func resetCounters() {
         currentScore = 0
         comboCounter = 0
@@ -42,6 +48,7 @@ class ScoreController {
             scoreHistory.removeLast()
         }
         resetCounters()
+        saveScores()
     }
     
     func getCurrentScore() -> Int {

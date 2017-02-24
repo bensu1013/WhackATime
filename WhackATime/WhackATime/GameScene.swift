@@ -169,14 +169,14 @@ extension GameScene: SKPhysicsContactDelegate {
                 }
             }
             
-            //splash touches floor
+        //splash touches floor
         } else if a.categoryBitMask == 2 && b.categoryBitMask == 8 {
             
             if let splash = b.node as? Splash {
                 splash.removeFromParent()
             }
             
-            //droplet touches cat
+        //droplet touches bunny
             
         } else if a.categoryBitMask == 1 && b.categoryBitMask == 4 {
             
@@ -186,6 +186,7 @@ extension GameScene: SKPhysicsContactDelegate {
                     droplet.splashOnCat()
                 }
             }
+            
             if let bunny = a.node as? Bunny {
                 bunny.touchedDroplet()
             }
@@ -194,7 +195,7 @@ extension GameScene: SKPhysicsContactDelegate {
             gsDelegate?.gameOver(scene: self)
             resetScene()
             
-            //splash touches cat
+        //splash touches bunny
         } else if a.categoryBitMask == 1 && b.categoryBitMask == 8 {
             
             if let splash = b.node as? Splash {
