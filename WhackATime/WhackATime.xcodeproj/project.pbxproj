@@ -204,6 +204,7 @@
 				TargetAttributes = {
 					FD1415261E4274DD00B946AC = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = KXY9EDFTF5;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -388,11 +389,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KXY9EDFTF5;
 				INFOPLIST_FILE = WhackATime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = BS.WhackATime;
+				PRODUCT_BUNDLE_IDENTIFIER = "BS.pop-em";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -400,11 +403,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KXY9EDFTF5;
 				INFOPLIST_FILE = WhackATime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = BS.WhackATime;
+				PRODUCT_BUNDLE_IDENTIFIER = "BS.pop-em";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
