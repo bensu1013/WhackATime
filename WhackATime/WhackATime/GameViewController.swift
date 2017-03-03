@@ -11,15 +11,10 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-
-    var gameView: SKView?
-    var landingView: LandingView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadGameScene()
-        loadLandingView()
-        self.view = landingView
         
         DataStore.sharedInstance.fetchData()
        
@@ -44,9 +39,9 @@ class GameViewController: UIViewController {
     }
     
     fileprivate func loadGameScene() {
-        gameView = SKView(frame: self.view.frame)
+        let gameView = SKView(frame: self.view.frame)
         
-        gameView?.backgroundColor = UIColor.white
+        gameView.backgroundColor = UIColor.white
         
         // Load the SKScene from 'GameScene.sks'
         if let scene = SKScene(fileNamed: "GameScene") as? GameScene {
@@ -57,27 +52,22 @@ class GameViewController: UIViewController {
             scene.scaleMode = .aspectFit
             
             // Present the scene
-            gameView?.presentScene(scene)
+            gameView.presentScene(scene)
             
             scene.gsDelegate = self
-            scene.isPaused = true
             
         }
         
-        gameView?.ignoresSiblingOrder = true
-        gameView?.showsFPS = true
-        gameView?.showsNodeCount = true
+        gameView.ignoresSiblingOrder = true
+        gameView.showsFPS = true
+        gameView.showsNodeCount = true
         
         let hud = HudLayer.main
         hud.vcDelegate = self
-        gameView?.addSubview(hud)
-        StopWatch.isPaused = true
+        gameView.addSubview(hud)
         
-    }
-    
-    fileprivate func loadLandingView() {
-        landingView = LandingView(frame: view.frame)
-        landingView?.delegate = self
+        self.view = gameView
+        
     }
     
 }
@@ -93,7 +83,7 @@ extension GameViewController {
         }
         let quit = UIAlertAction(title: "Menu", style: .cancel) { (action) in
             
-            self.view = self.landingView
+            NotificationCenter.default.post(name: Notification.Name.landingVC, object: nil)
         }
         
         alert.addAction(replay)
@@ -111,9 +101,7 @@ extension GameViewController {
         }
         
         let quit = UIAlertAction(title: "Quit", style: .cancel) { (action) in
-            (self.gameView?.scene as! GameScene).resetScene()
-            
-            self.view = self.landingView
+            NotificationCenter.default.post(name: Notification.Name.landingVC, object: nil)
         }
         
         alert.addAction(replay)
@@ -129,16 +117,6 @@ extension GameViewController: HUDToVCDelegate {
     func showMenu() {
         menuAlertView()
     }
-}
-
-extension GameViewController: LandingViewDelegate {
-    
-    func startGameTapped() {
-        self.view = gameView
-        (self.gameView?.scene as! GameScene).startGame()
-      
-    }
-    
 }
 
 extension GameViewController: GameSceneDelegate {

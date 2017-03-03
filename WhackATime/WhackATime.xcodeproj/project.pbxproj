@@ -31,6 +31,10 @@
 		FD466EE11E4D66EC00BA214D /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD466EE01E4D66EC00BA214D /* Cloud.swift */; };
 		FD466EE31E591D7F00BA214D /* LandingViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD466EE21E591D7F00BA214D /* LandingViewBackground.swift */; };
 		FD466EE71E591DF500BA214D /* LandingScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FD466EE61E591DF500BA214D /* LandingScene.sks */; };
+		FDEF8BE31E69F53800492121 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF8BE21E69F53800492121 /* MainViewController.swift */; };
+		FDEF8BE61E69F88700492121 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF8BE51E69F88700492121 /* LandingViewController.swift */; };
+		FDEF8BE81E69F88F00492121 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF8BE71E69F88F00492121 /* ScoreViewController.swift */; };
+		FDEF8BEA1E69F89900492121 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF8BE91E69F89900492121 /* CreditViewController.swift */; };
 		FDF224FF1E5CCA0000F4E282 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF224FE1E5CCA0000F4E282 /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +65,10 @@
 		FD466EE01E4D66EC00BA214D /* Cloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		FD466EE21E591D7F00BA214D /* LandingViewBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewBackground.swift; sourceTree = "<group>"; };
 		FD466EE61E591DF500BA214D /* LandingScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandingScene.sks; sourceTree = "<group>"; };
+		FDEF8BE21E69F53800492121 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FDEF8BE51E69F88700492121 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		FDEF8BE71E69F88F00492121 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		FDEF8BE91E69F89900492121 /* CreditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
 		FDF224FE1E5CCA0000F4E282 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,7 +120,7 @@
 				FD466EDE1E4D668A00BA214D /* Model */,
 				FD466ED61E48FBDD00BA214D /* Landing */,
 				FDF225001E5CCDC900F4E282 /* Support */,
-				FD1415321E4274DD00B946AC /* GameViewController.swift */,
+				FDEF8BE41E69F87000492121 /* ViewControllers */,
 				FD14154E1E46C76600B946AC /* IntroView.swift */,
 				FD1415461E450EAF00B946AC /* HUDLayer.swift */,
 				FD1415371E4274DD00B946AC /* Assets.xcassets */,
@@ -162,6 +170,18 @@
 			name = Bodies;
 			sourceTree = "<group>";
 		};
+		FDEF8BE41E69F87000492121 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FDEF8BE21E69F53800492121 /* MainViewController.swift */,
+				FD1415321E4274DD00B946AC /* GameViewController.swift */,
+				FDEF8BE51E69F88700492121 /* LandingViewController.swift */,
+				FDEF8BE71E69F88F00492121 /* ScoreViewController.swift */,
+				FDEF8BE91E69F89900492121 /* CreditViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		FDF225001E5CCDC900F4E282 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +224,7 @@
 				TargetAttributes = {
 					FD1415261E4274DD00B946AC = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = KXY9EDFTF5;
+						DevelopmentTeam = Y7JKK8T2ED;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -249,6 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD1415311E4274DD00B946AC /* GameScene.swift in Sources */,
+				FDEF8BE81E69F88F00492121 /* ScoreViewController.swift in Sources */,
+				FDEF8BE61E69F88700492121 /* LandingViewController.swift in Sources */,
 				FD1415471E450EAF00B946AC /* HUDLayer.swift in Sources */,
 				FD1415331E4274DD00B946AC /* GameViewController.swift in Sources */,
 				FD1415491E45823800B946AC /* ScoreController.swift in Sources */,
@@ -267,6 +289,8 @@
 				FD14154B1E45898E00B946AC /* StopWatch.swift in Sources */,
 				FDF224FF1E5CCA0000F4E282 /* Fonts.swift in Sources */,
 				FD466EDA1E48FC1300BA214D /* CreditView.swift in Sources */,
+				FDEF8BE31E69F53800492121 /* MainViewController.swift in Sources */,
+				FDEF8BEA1E69F89900492121 /* CreditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,7 +413,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KXY9EDFTF5;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = Y7JKK8T2ED;
 				INFOPLIST_FILE = WhackATime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "BS.pop-em";
@@ -403,7 +428,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = KXY9EDFTF5;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = Y7JKK8T2ED;
 				INFOPLIST_FILE = WhackATime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "BS.pop-em";

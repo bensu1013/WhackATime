@@ -34,7 +34,7 @@ class ScoreView: UIView {
     }
     
     @objc func doneButtonAction() {
-        self.removeFromSuperview()
+        NotificationCenter.default.post(name: Notification.Name.landingVC, object: nil)
     }
     
 }
@@ -53,15 +53,12 @@ extension ScoreView {
         var scoreText = "Scores\n"
         
         for count in 0...9 {
-            
             if count < scores.count {
                 scoreText += "\(count + 1)) \(scores[count])\n"
             } else {
                 scoreText += "\(count + 1)) None\n"
             }
-            
         }
-        
         textField.text = scoreText
     }
     

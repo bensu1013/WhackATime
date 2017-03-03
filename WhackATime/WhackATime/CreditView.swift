@@ -33,9 +33,8 @@ class CreditView: UIView {
     }
     
     @objc func doneButtonAction() {
-        self.removeFromSuperview()
+        NotificationCenter.default.post(name: Notification.Name.landingVC, object: nil)
     }
-
 }
 
 extension CreditView {

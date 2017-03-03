@@ -10,32 +10,21 @@ import Foundation
 import UIKit
 import SpriteKit
 
-protocol LandingViewDelegate: class {
-    func startGameTapped()
-}
-
 class LandingView: UIView {
-    
-    weak var delegate: LandingViewDelegate?
 
     var titleLabel = UILabel()
     var startGame = UIButton()
     var checkScores = UIButton()
     var credits = UIButton()
     
-    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         let backView = SKView(frame: frame)
         let landingScene = SKScene(fileNamed: "LandingScene")
         landingScene?.scaleMode = .aspectFit
         backView.presentScene(landingScene)
         self.addSubview(backView)
-        
         loadSubviews()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,17 +36,15 @@ class LandingView: UIView {
     }
     
     @objc fileprivate func startGameAction() {
-        delegate?.startGameTapped()
+        NotificationCenter.default.post(name: Notification.Name.gameVC, object: nil)
     }
     
     @objc fileprivate func checkScoresAction() {
-        let scoreView = ScoreView(frame: self.frame)
-        self.addSubview(scoreView)
+        NotificationCenter.default.post(name: Notification.Name.scoreVC, object: nil)
     }
     
     @objc fileprivate func creditsAction() {
-        let creditView = CreditView(frame: self.frame)
-        self.addSubview(creditView)
+        NotificationCenter.default.post(name: Notification.Name.creditVC, object: nil)
     }
     
 }
@@ -73,8 +60,6 @@ extension LandingView {
         loadCreditsButton()
         
     }
-    
-  
     
     private func loadTitleLabel() {
         titleLabel.frame = CGRect(x: frame.width * 0.2, y: frame.height * 0.1, width: frame.width * 0.6, height: frame.height * 0.15)
