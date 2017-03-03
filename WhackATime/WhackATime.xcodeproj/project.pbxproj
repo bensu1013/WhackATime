@@ -35,6 +35,7 @@
 		FDEF8BE61E69F88700492121 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF8BE51E69F88700492121 /* LandingViewController.swift */; };
 		FDEF8BE81E69F88F00492121 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF8BE71E69F88F00492121 /* ScoreViewController.swift */; };
 		FDEF8BEA1E69F89900492121 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF8BE91E69F89900492121 /* CreditViewController.swift */; };
+		FDEF8BF01E6A1F4400492121 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF8BEF1E6A1F4400492121 /* GameView.swift */; };
 		FDF224FF1E5CCA0000F4E282 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF224FE1E5CCA0000F4E282 /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		FDEF8BE51E69F88700492121 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		FDEF8BE71E69F88F00492121 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		FDEF8BE91E69F89900492121 /* CreditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
+		FDEF8BEF1E6A1F4400492121 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		FDF224FE1E5CCA0000F4E282 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +116,6 @@
 				FD14152A1E4274DD00B946AC /* AppDelegate.swift */,
 				FD14152E1E4274DD00B946AC /* Actions.sks */,
 				FD02DC601E5CCE1300D38F37 /* Scenes */,
-				FD1415301E4274DD00B946AC /* GameScene.swift */,
 				FD466EDD1E4D666A00BA214D /* Factories */,
 				FD466EDF1E4D66BA00BA214D /* Bodies */,
 				FD466EDE1E4D668A00BA214D /* Model */,
@@ -132,10 +133,6 @@
 		FD466ED61E48FBDD00BA214D /* Landing */ = {
 			isa = PBXGroup;
 			children = (
-				FD1415501E46C76D00B946AC /* LandingView.swift */,
-				FD466EE21E591D7F00BA214D /* LandingViewBackground.swift */,
-				FD466ED71E48FBF300BA214D /* ScoreView.swift */,
-				FD466ED91E48FC1300BA214D /* CreditView.swift */,
 			);
 			name = Landing;
 			sourceTree = "<group>";
@@ -174,12 +171,50 @@
 			isa = PBXGroup;
 			children = (
 				FDEF8BE21E69F53800492121 /* MainViewController.swift */,
-				FD1415321E4274DD00B946AC /* GameViewController.swift */,
-				FDEF8BE51E69F88700492121 /* LandingViewController.swift */,
-				FDEF8BE71E69F88F00492121 /* ScoreViewController.swift */,
-				FDEF8BE91E69F89900492121 /* CreditViewController.swift */,
+				FDEF8BEB1E6A1E9200492121 /* LandingView */,
+				FDEF8BEC1E6A1EAA00492121 /* GameView */,
+				FDEF8BED1E6A1EC100492121 /* ScoreView */,
+				FDEF8BEE1E6A1ED100492121 /* CreditView */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FDEF8BEB1E6A1E9200492121 /* LandingView */ = {
+			isa = PBXGroup;
+			children = (
+				FDEF8BE51E69F88700492121 /* LandingViewController.swift */,
+				FD1415501E46C76D00B946AC /* LandingView.swift */,
+				FD466EE21E591D7F00BA214D /* LandingViewBackground.swift */,
+			);
+			name = LandingView;
+			sourceTree = "<group>";
+		};
+		FDEF8BEC1E6A1EAA00492121 /* GameView */ = {
+			isa = PBXGroup;
+			children = (
+				FD1415321E4274DD00B946AC /* GameViewController.swift */,
+				FDEF8BEF1E6A1F4400492121 /* GameView.swift */,
+				FD1415301E4274DD00B946AC /* GameScene.swift */,
+			);
+			name = GameView;
+			sourceTree = "<group>";
+		};
+		FDEF8BED1E6A1EC100492121 /* ScoreView */ = {
+			isa = PBXGroup;
+			children = (
+				FDEF8BE71E69F88F00492121 /* ScoreViewController.swift */,
+				FD466ED71E48FBF300BA214D /* ScoreView.swift */,
+			);
+			name = ScoreView;
+			sourceTree = "<group>";
+		};
+		FDEF8BEE1E6A1ED100492121 /* CreditView */ = {
+			isa = PBXGroup;
+			children = (
+				FDEF8BE91E69F89900492121 /* CreditViewController.swift */,
+				FD466ED91E48FC1300BA214D /* CreditView.swift */,
+			);
+			name = CreditView;
 			sourceTree = "<group>";
 		};
 		FDF225001E5CCDC900F4E282 /* Support */ = {
@@ -290,6 +325,7 @@
 				FDF224FF1E5CCA0000F4E282 /* Fonts.swift in Sources */,
 				FD466EDA1E48FC1300BA214D /* CreditView.swift in Sources */,
 				FDEF8BE31E69F53800492121 /* MainViewController.swift in Sources */,
+				FDEF8BF01E6A1F4400492121 /* GameView.swift in Sources */,
 				FDEF8BEA1E69F89900492121 /* CreditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

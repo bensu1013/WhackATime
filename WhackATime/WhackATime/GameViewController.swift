@@ -15,10 +15,6 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadGameScene()
-        
-        DataStore.sharedInstance.fetchData()
-       
-        
     }
 
     override var shouldAutorotate: Bool {
@@ -36,6 +32,10 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    deinit {
+        print("bye bye gameVC")
     }
     
     fileprivate func loadGameScene() {
@@ -84,6 +84,7 @@ extension GameViewController {
         let quit = UIAlertAction(title: "Menu", style: .cancel) { (action) in
             
             NotificationCenter.default.post(name: Notification.Name.landingVC, object: nil)
+            
         }
         
         alert.addAction(replay)
@@ -102,6 +103,7 @@ extension GameViewController {
         
         let quit = UIAlertAction(title: "Quit", style: .cancel) { (action) in
             NotificationCenter.default.post(name: Notification.Name.landingVC, object: nil)
+            ScoreController.main.resetCounters()
         }
         
         alert.addAction(replay)

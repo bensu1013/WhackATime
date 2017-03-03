@@ -23,17 +23,20 @@ class GameScene: SKScene {
     let hud = HudLayer.main
     
     override func didMove(to view: SKView) {
+
         
+        print("did move")
         hud.gsDelegate = self
         self.physicsWorld.contactDelegate = self
         self.addChild(RainFactory.droplets)
         self.addChild(CloudFactory.clouds)
         bunny = self.childNode(withName: "bunny") as? Bunny
-
+        resetScene()
+        startGame()
     }
     
     deinit {
-        print("bye bye game scene")
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -61,7 +64,7 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        
+        print(self.isPaused)
         bunny?.update()
         StopWatch.updateTime(current: currentTime)
         hud.setTimer(to: StopWatch.elapsedTimeInSeconds())
@@ -192,8 +195,9 @@ extension GameScene: SKPhysicsContactDelegate {
             }
             
             //round should end at this point
-            gsDelegate?.gameOver(scene: self)
             resetScene()
+            gsDelegate?.gameOver(scene: self)
+            
             
         //splash touches bunny
         } else if a.categoryBitMask == 1 && b.categoryBitMask == 8 {

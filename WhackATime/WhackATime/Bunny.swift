@@ -33,6 +33,10 @@ class Bunny: SKSpriteNode {
         
     }
     
+    deinit {
+        print("bunny bye")
+    }
+    
     func update() {
         
         switch direction {

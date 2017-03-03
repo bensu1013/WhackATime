@@ -17,6 +17,8 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        DataStore.sharedInstance.fetchData()
+        
         self.containerView.frame = self.view.bounds
         self.view.addSubview(containerView)
         
