@@ -75,20 +75,19 @@ extension HudLayer {
     fileprivate func subviewSetup() {
         self.backgroundColor = UIColor.clear
         
-        scoreLabel.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.64, y: 10, width: 100, height: 30)
+        scoreLabel.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.6, y: UIScreen.main.bounds.size.height * 0.06, width: UIScreen.main.bounds.size.width * 0.1, height: UIScreen.main.bounds.size.height * 0.1)
         scoreLabel.backgroundColor = UIColor.clear
         scoreLabel.font = Fonts.hudlayer
         scoreLabel.text = "Score: 0"
         self.addSubview(scoreLabel)
         
-        
-        timerLabel.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.33, y: 10, width: 100, height: 30)
+        timerLabel.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.3, y: UIScreen.main.bounds.size.height * 0.06, width: UIScreen.main.bounds.size.width * 0.1, height: UIScreen.main.bounds.size.height * 0.1)
         timerLabel.backgroundColor = UIColor.clear
         timerLabel.font = Fonts.hudlayer
         timerLabel.text = "Time: 0:00"
         self.addSubview(timerLabel)
         
-        menuButton.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.85, y: 10, width: 100, height: 30)
+        menuButton.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.8, y: UIScreen.main.bounds.size.height * 0.06, width: UIScreen.main.bounds.size.width * 0.1, height: UIScreen.main.bounds.size.height * 0.1)
         menuButton.setTitle("Menu", for: .normal)
         menuButton.titleLabel?.font = Fonts.hudlayer
         menuButton.addTarget(self, action: #selector(menuButtonAction), for: .touchUpInside)

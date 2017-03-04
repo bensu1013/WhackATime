@@ -35,8 +35,6 @@ class GameView: SKView {
             // Present the scene
             self.presentScene(scene)
             
-//            scene.gsDelegate = self
-            
         }
         
         self.ignoresSiblingOrder = true

@@ -36,6 +36,7 @@
 		FDEF8BE81E69F88F00492121 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF8BE71E69F88F00492121 /* ScoreViewController.swift */; };
 		FDEF8BEA1E69F89900492121 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF8BE91E69F89900492121 /* CreditViewController.swift */; };
 		FDEF8BF01E6A1F4400492121 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF8BEF1E6A1F4400492121 /* GameView.swift */; };
+		FDEF8BF21E6B45A200492121 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDEF8BF11E6B45A200492121 /* Extensions.swift */; };
 		FDF224FF1E5CCA0000F4E282 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF224FE1E5CCA0000F4E282 /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		FDEF8BE71E69F88F00492121 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		FDEF8BE91E69F89900492121 /* CreditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
 		FDEF8BEF1E6A1F4400492121 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		FDEF8BF11E6B45A200492121 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FDF224FE1E5CCA0000F4E282 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,6 +225,7 @@
 				FDF224FE1E5CCA0000F4E282 /* Fonts.swift */,
 				FD1415341E4274DD00B946AC /* Main.storyboard */,
 				FD1415391E4274DD00B946AC /* LaunchScreen.storyboard */,
+				FDEF8BF11E6B45A200492121 /* Extensions.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				FD466EE11E4D66EC00BA214D /* Cloud.swift in Sources */,
 				FD14154B1E45898E00B946AC /* StopWatch.swift in Sources */,
 				FDF224FF1E5CCA0000F4E282 /* Fonts.swift in Sources */,
+				FDEF8BF21E6B45A200492121 /* Extensions.swift in Sources */,
 				FD466EDA1E48FC1300BA214D /* CreditView.swift in Sources */,
 				FDEF8BE31E69F53800492121 /* MainViewController.swift in Sources */,
 				FDEF8BF01E6A1F4400492121 /* GameView.swift in Sources */,

@@ -51,7 +51,7 @@ class RainFactory {
         
         for _ in 0...Int(randomSplash) {
             
-            let splash = Splash(texture: nil, color: UIColor.red, size: CGSize(width: 16, height: 16))
+            let splash = Splash(texture: nil, color: UIColor.confetti, size: CGSize(width: 16, height: 16))
             splash.position = point
             droplets.addChild(splash)
             splash.physicsBody?.applyImpulse(CGVector(dx: drand48() - 0.5, dy: drand48() + 0.5))
