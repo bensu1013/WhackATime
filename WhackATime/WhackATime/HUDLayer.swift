@@ -9,21 +9,9 @@
 import Foundation
 import UIKit
 
-protocol HUDToVCDelegate: class {
-    func showMenu()
-}
-
-protocol HUDToGSDelegate: class {
-    func pauseGameForMenu()
-    func resumeGameFromMenu()
-}
-
 class HudLayer: UIView {
     
     static var main = HudLayer(frame: UIScreen.main.bounds)
-    
-    weak var vcDelegate: HUDToVCDelegate?
-    weak var gsDelegate: HUDToGSDelegate?
     
     let scoreLabel = UILabel()
     let timerLabel = UILabel()
@@ -34,26 +22,7 @@ class HudLayer: UIView {
     private override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.clear
-        
-        scoreLabel.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.64, y: 10, width: 100, height: 30)
-        scoreLabel.backgroundColor = UIColor.clear
-        scoreLabel.font = Fonts.hudlayer
-        scoreLabel.text = "Score: 0"
-        self.addSubview(scoreLabel)
-        
-        
-        timerLabel.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.33, y: 10, width: 100, height: 30)
-        timerLabel.backgroundColor = UIColor.clear
-        timerLabel.font = Fonts.hudlayer
-        timerLabel.text = "Time: 0:00"
-        self.addSubview(timerLabel)
-        
-        menuButton.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.85, y: 10, width: 100, height: 30)
-        menuButton.setTitle("Menu", for: .normal)
-        menuButton.titleLabel?.font = Fonts.hudlayer
-        menuButton.addTarget(self, action: #selector(menuButtonAction), for: .touchUpInside)
-        self.addSubview(menuButton)
+        subviewSetup()
         
     }
     
@@ -61,9 +30,9 @@ class HudLayer: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc private func menuButtonAction() {
-        gsDelegate?.pauseGameForMenu()
-        vcDelegate?.showMenu()
+    @objc fileprivate func menuButtonAction() {
+        NotificationCenter.default.post(name: Notification.Name.menuOpen, object: nil)
+        NotificationCenter.default.post(name: Notification.Name.pauseGame, object: nil)
     }
     
     func setLabelColors(ipad: Bool) {
@@ -101,7 +70,32 @@ class HudLayer: UIView {
     
 }
 
-
+extension HudLayer {
+    
+    fileprivate func subviewSetup() {
+        self.backgroundColor = UIColor.clear
+        
+        scoreLabel.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.64, y: 10, width: 100, height: 30)
+        scoreLabel.backgroundColor = UIColor.clear
+        scoreLabel.font = Fonts.hudlayer
+        scoreLabel.text = "Score: 0"
+        self.addSubview(scoreLabel)
+        
+        
+        timerLabel.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.33, y: 10, width: 100, height: 30)
+        timerLabel.backgroundColor = UIColor.clear
+        timerLabel.font = Fonts.hudlayer
+        timerLabel.text = "Time: 0:00"
+        self.addSubview(timerLabel)
+        
+        menuButton.frame = CGRect(x: UIScreen.main.bounds.size.width * 0.85, y: 10, width: 100, height: 30)
+        menuButton.setTitle("Menu", for: .normal)
+        menuButton.titleLabel?.font = Fonts.hudlayer
+        menuButton.addTarget(self, action: #selector(menuButtonAction), for: .touchUpInside)
+        self.addSubview(menuButton)
+    }
+    
+}
 
 
 

@@ -15,6 +15,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadGameScene()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(menuAlertView), name: Notification.Name.menuOpen, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(gameOverAlertView), name: Notification.Name.gameEnd, object: nil)
+        
     }
 
     override var shouldAutorotate: Bool {
@@ -54,8 +58,6 @@ class GameViewController: UIViewController {
             // Present the scene
             gameView.presentScene(scene)
             
-            scene.gsDelegate = self
-            
         }
         
         gameView.ignoresSiblingOrder = true
@@ -63,7 +65,6 @@ class GameViewController: UIViewController {
         gameView.showsNodeCount = true
         
         let hud = HudLayer.main
-        hud.vcDelegate = self
         gameView.addSubview(hud)
         
         self.view = gameView
@@ -75,11 +76,11 @@ class GameViewController: UIViewController {
 //Alerts
 extension GameViewController {
     
-    fileprivate func gameOverAlert(scene: GameScene) {
+    @objc fileprivate func gameOverAlertView() {
         
         let alert = UIAlertController(title: "Oh Boy", message: "Bunny was crushed by falling heads.", preferredStyle: .alert)
         let replay = UIAlertAction(title: "Replay", style: .default) { (action) in
-            scene.startGame()
+            NotificationCenter.default.post(name: Notification.Name.resumeGame, object: nil)
         }
         let quit = UIAlertAction(title: "Menu", style: .cancel) { (action) in
             
@@ -94,11 +95,11 @@ extension GameViewController {
         
     }
     
-    fileprivate func menuAlertView() {
+    @objc fileprivate func menuAlertView() {
         
         let alert = UIAlertController(title: "Paused", message: nil, preferredStyle: .alert)
         let replay = UIAlertAction(title: "Resume", style: .default) { (action) in
-            HudLayer.main.gsDelegate?.resumeGameFromMenu()
+            NotificationCenter.default.post(name: Notification.Name.resumeGame, object: nil)
         }
         
         let quit = UIAlertAction(title: "Quit", style: .cancel) { (action) in
@@ -113,16 +114,4 @@ extension GameViewController {
         
     }
     
-}
-
-extension GameViewController: HUDToVCDelegate {
-    func showMenu() {
-        menuAlertView()
-    }
-}
-
-extension GameViewController: GameSceneDelegate {
-    func gameOver(scene: GameScene) {
-        gameOverAlert(scene: scene)
-    }
 }

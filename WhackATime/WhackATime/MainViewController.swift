@@ -103,8 +103,22 @@ final class MainViewController: UIViewController {
 
 //Notification values
 extension Notification.Name {
+    
+    //Meant for creation and changing of view controllers in game
     static let landingVC = Notification.Name(rawValue: "landingvc")
     static let gameVC = Notification.Name(rawValue: "gamevc")
     static let scoreVC = Notification.Name(rawValue: "scorevc")
     static let creditVC = Notification.Name(rawValue: "creditvc")
+    
+    //Gamescene communication with its VC
+    static let menuOpen = Notification.Name(rawValue: "menuopen")
+    static let gameEnd = Notification.Name(rawValue: "gameend")
+    //objects notifying scene of changes
+    static let resumeGame = Notification.Name(rawValue: "resumegame")
+    static let pauseGame = Notification.Name(rawValue: "pausegame")
+    
 }
+
+
+
+

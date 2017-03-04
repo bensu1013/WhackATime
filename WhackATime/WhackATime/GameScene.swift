@@ -24,15 +24,16 @@ class GameScene: SKScene {
     
     override func didMove(to view: SKView) {
 
-        
-        print("did move")
-        hud.gsDelegate = self
         self.physicsWorld.contactDelegate = self
         self.addChild(RainFactory.droplets)
         self.addChild(CloudFactory.clouds)
         bunny = self.childNode(withName: "bunny") as? Bunny
         resetScene()
         startGame()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(startGame), name: Notification.Name.resumeGame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(pauseGame), name: Notification.Name.pauseGame, object: nil)
+        
     }
     
     deinit {
@@ -64,7 +65,6 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        print(self.isPaused)
         bunny?.update()
         StopWatch.updateTime(current: currentTime)
         hud.setTimer(to: StopWatch.elapsedTimeInSeconds())
@@ -76,12 +76,20 @@ class GameScene: SKScene {
         
         self.isPaused = false
         StopWatch.isPaused = false
-        bunny?.reset()
+        
+    }
+    
+    func pauseGame() {
+        
+        self.isPaused = true
+        StopWatch.isPaused = true
         
     }
     
     func resetScene() {
         
+        bunny?.removeAllActions()
+        bunny?.position = CGPoint(x: 0.0, y: (bunny?.position.y)!)
         StopWatch.reset()
         self.isPaused = true
         self.removeAllActions()
@@ -127,24 +135,6 @@ class GameScene: SKScene {
         }
     }
     
-    
-}
-
-extension GameScene: HUDToGSDelegate {
-    
-    func pauseGameForMenu() {
-        
-        StopWatch.isPaused = true
-        self.isPaused = true
-
-    }
-    
-    func resumeGameFromMenu() {
-        
-        StopWatch.isPaused = false
-        self.isPaused = false
-
-    }
     
 }
 
@@ -196,7 +186,7 @@ extension GameScene: SKPhysicsContactDelegate {
             
             //round should end at this point
             resetScene()
-            gsDelegate?.gameOver(scene: self)
+            NotificationCenter.default.post(name: Notification.Name.gameEnd, object: nil)
             
             
         //splash touches bunny

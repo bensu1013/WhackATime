@@ -7,15 +7,46 @@
 //
 
 import UIKit
+import SpriteKit
 
 class GameView: SKView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
     }
-    */
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
+    fileprivate func loadGameScene() {
+        
+        self.backgroundColor = UIColor.white
+        
+        // Load the SKScene from 'GameScene.sks'
+        if let scene = SKScene(fileNamed: "GameScene") as? GameScene {
+            
+            
+            
+            // Set the scale mode to scale to fit the window
+            scene.scaleMode = .aspectFit
+            
+            // Present the scene
+            self.presentScene(scene)
+            
+//            scene.gsDelegate = self
+            
+        }
+        
+        self.ignoresSiblingOrder = true
+        self.showsFPS = true
+        self.showsNodeCount = true
+        
+        self.addSubview(HudLayer.main)
+        
+    }
+    
+    
+    
 }
