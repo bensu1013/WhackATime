@@ -18,7 +18,6 @@ class ScoreController {
     private var comboCounter: Int = 0
     
     private init() {
-        print("scorecontroller init\n\(scoreHistory)")
         scoreHistory = DataStore.sharedInstance.getScores()
     }
     
@@ -115,7 +114,7 @@ class DataStore {
     }
     
     func saveScores(values: [Int]) {
-        print(values)
+        
         if !scores.isEmpty {
             scores[0].first = "\(values[0])"
             scores[0].second = "\(values[1])"

@@ -54,11 +54,11 @@ final class MainViewController: UIViewController {
     }
     
     func switchToViewController(with id: String) {
+        print("switching vc")
         let currentVC = actingVC
         currentVC?.willMove(toParentViewController: nil)
-        actingVC = loadViewController(with: id)
-        addChildViewController(actingVC)
-        add(viewController: actingVC)
+        
+        loadNewViewController(with: id)
         
         UIView.animate(withDuration: 0.3, animations: {
             self.actingVC.view.alpha = 1.0
@@ -72,7 +72,7 @@ final class MainViewController: UIViewController {
     
     func loadNewViewController(with id: String) {
         self.actingVC = loadViewController(with: id)
-        self.add(viewController: actingVC)
+        self.add(viewController: actingVC, animated: true)
     }
     
     
@@ -92,7 +92,7 @@ final class MainViewController: UIViewController {
         
         guard animated else { containerView.alpha = 1.0; return }
         
-        UIView.transition(with: containerView, duration: 0.5, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: containerView, duration: 0.3, options: .transitionCrossDissolve, animations: {
             self.containerView.alpha = 1.0
         }) { _ in }
     }
@@ -113,7 +113,9 @@ extension Notification.Name {
     //Gamescene communication with its VC
     static let menuOpen = Notification.Name(rawValue: "menuopen")
     static let gameEnd = Notification.Name(rawValue: "gameend")
+    
     //objects notifying scene of changes
+    static let startGame = Notification.Name(rawValue: "startgame")
     static let resumeGame = Notification.Name(rawValue: "resumegame")
     static let pauseGame = Notification.Name(rawValue: "pausegame")
     

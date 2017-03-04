@@ -30,15 +30,15 @@ class Bunny: SKSpriteNode {
         
         self.position.x = 0
         self.texture = readyTexture
-        
+        self.removeAllActions()
     }
     
     deinit {
-        print("bunny bye")
+        
     }
     
     func update() {
-        
+
         switch direction {
         case .left:
             if !self.hasActions() {
@@ -66,7 +66,7 @@ class Bunny: SKSpriteNode {
             
         } else {
             
-            let rand = arc4random_uniform(4)
+            let rand = arc4random_uniform(3)
             
             switch rand {
             case 0:
@@ -75,8 +75,8 @@ class Bunny: SKSpriteNode {
                 moveLeft()
             case 2:
                 moveRight()
-            case 3:
-                sitDown()
+//            case 3:
+//                sitDown()
             default:
                 stayStill()
                 
@@ -108,9 +108,14 @@ class Bunny: SKSpriteNode {
             moveRight()
         } else {
             
-            let distance = CGFloat(arc4random_uniform(100)) + 100
+            var distance = CGFloat(arc4random_uniform(100)) + 100
             
-            let dura = Double(distance / 100)
+            var dura = Double(distance / 100)
+            
+            if self.position.x - distance < 575 {
+                distance = 576 + self.position.x
+                dura = Double(distance / 100)
+            }
             
             self.xScale = -1
             
@@ -134,9 +139,15 @@ class Bunny: SKSpriteNode {
             moveLeft()
         } else {
             
-            let distance = CGFloat(arc4random_uniform(100)) + 100
+            var distance = CGFloat(arc4random_uniform(100)) + 100
             
-            let dura = Double(distance / 100)
+            var dura = Double(distance / 100)
+            
+            if self.position.x + distance > 575 {
+                distance = 576 - self.position.x
+                dura = Double(distance / 100)
+            }
+            
             
             self.xScale = 1
             
@@ -152,6 +163,9 @@ class Bunny: SKSpriteNode {
             
             direction = .right
         }
+        
+        
+        
     }
     
     private func sitDown() {

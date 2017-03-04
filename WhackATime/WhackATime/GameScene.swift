@@ -31,7 +31,8 @@ class GameScene: SKScene {
         resetScene()
         startGame()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(startGame), name: Notification.Name.resumeGame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(startGame), name: Notification.Name.startGame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resumeGame), name: Notification.Name.resumeGame, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(pauseGame), name: Notification.Name.pauseGame, object: nil)
         
     }
@@ -72,14 +73,18 @@ class GameScene: SKScene {
         createClouds()
     }
     
-    func startGame() {
-        
+    @objc fileprivate func startGame() {
         self.isPaused = false
         StopWatch.isPaused = false
-        
+        bunny?.reset()
     }
     
-    func pauseGame() {
+    @objc fileprivate func resumeGame() {
+        self.isPaused = false
+        StopWatch.isPaused = false
+    }
+    
+    @objc fileprivate func pauseGame() {
         
         self.isPaused = true
         StopWatch.isPaused = true
@@ -88,8 +93,6 @@ class GameScene: SKScene {
     
     func resetScene() {
         
-        bunny?.removeAllActions()
-        bunny?.position = CGPoint(x: 0.0, y: (bunny?.position.y)!)
         StopWatch.reset()
         self.isPaused = true
         self.removeAllActions()
@@ -176,7 +179,7 @@ extension GameScene: SKPhysicsContactDelegate {
             if let droplet = b.node as? Droplet {
                 if !droplet.hasContacted {
                     RainFactory.createSplash(at: droplet.position)
-                    droplet.splashOnCat()
+                    droplet.splashOnBunny()
                 }
             }
             
@@ -185,7 +188,7 @@ extension GameScene: SKPhysicsContactDelegate {
             }
             
             //round should end at this point
-            resetScene()
+            self.resetScene()
             NotificationCenter.default.post(name: Notification.Name.gameEnd, object: nil)
             
             

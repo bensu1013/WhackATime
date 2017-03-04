@@ -63,7 +63,7 @@ class Droplet: SKSpriteNode {
         
     }
     
-    func splashOnCat() {
+    func splashOnBunny() {
         
         hasContacted = true
         self.color = UIColor.red

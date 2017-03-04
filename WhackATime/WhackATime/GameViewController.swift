@@ -39,7 +39,7 @@ class GameViewController: UIViewController {
     }
     
     deinit {
-        print("bye bye gameVC")
+        
     }
     
     fileprivate func loadGameScene() {
@@ -80,7 +80,7 @@ extension GameViewController {
         
         let alert = UIAlertController(title: "Oh Boy", message: "Bunny was crushed by falling heads.", preferredStyle: .alert)
         let replay = UIAlertAction(title: "Replay", style: .default) { (action) in
-            NotificationCenter.default.post(name: Notification.Name.resumeGame, object: nil)
+            NotificationCenter.default.post(name: Notification.Name.startGame, object: nil)
         }
         let quit = UIAlertAction(title: "Menu", style: .cancel) { (action) in
             

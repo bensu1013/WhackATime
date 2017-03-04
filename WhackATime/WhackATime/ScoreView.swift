@@ -30,7 +30,7 @@ class ScoreView: UIView {
     }
     
     deinit {
-        print("bye bye scoreview")
+        
     }
     
     @objc func doneButtonAction() {

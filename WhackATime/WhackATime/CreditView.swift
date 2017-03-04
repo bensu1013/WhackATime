@@ -29,7 +29,7 @@ class CreditView: UIView {
     }
     
     deinit {
-        print("bye bye creditview")
+        
     }
     
     @objc func doneButtonAction() {

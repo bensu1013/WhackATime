@@ -32,7 +32,7 @@ class LandingView: UIView {
     }
     
     deinit {
-        print("landing go bye bye")
+        
     }
     
     @objc fileprivate func startGameAction() {
