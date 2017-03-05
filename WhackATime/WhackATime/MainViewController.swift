@@ -40,21 +40,11 @@ final class MainViewController: UIViewController {
     
     
     func observerNotification(with notification: Notification) {
-        
         self.switchToViewController(with: notification.name.rawValue)
-        
-//        switch notification.name {
-//        case Notification.Name.landingVC:
-//            self.switchToViewController(with: notification.name.rawValue)
-//        case Notification.Name.gameVC:
-//            self.switchToViewController(with: notification.name.rawValue)
-//        default:
-//            fatalError("Well shitters")
-//        }
     }
     
     func switchToViewController(with id: String) {
-        print("switching vc")
+        
         let currentVC = actingVC
         currentVC?.willMove(toParentViewController: nil)
         

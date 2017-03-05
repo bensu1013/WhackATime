@@ -71,6 +71,9 @@ class GameScene: SKScene {
         hud.setTimer(to: StopWatch.elapsedTimeInSeconds())
         createRainFall()
         createClouds()
+        
+//        print(UIScreen.main.bounds)
+//        print("@@@\(self.frame)@@@")
     }
     
     @objc fileprivate func startGame() {

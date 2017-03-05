@@ -13,14 +13,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             HudLayer.main.setLabelColors(ipad: true)
+            print("ipad")
         } else {
             HudLayer.main.setLabelColors(ipad: false)
+            print("not ipad")
         }
         
         return true
