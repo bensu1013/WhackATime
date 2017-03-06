@@ -11,6 +11,8 @@ import UIKit
 
 class ScoreView: UIView {
     
+    let scoreOutliner = UIView()
+    let scoreLabel = UILabel()
     let textField = UITextView()
     let doneButton = UIButton()
     
@@ -20,6 +22,8 @@ class ScoreView: UIView {
         
         backgroundColor = UIColor.green
         
+        loadScoreOutliner()
+        loadScoreLabel()
         loadTextField()
         loadDoneButton()
         
@@ -41,8 +45,36 @@ class ScoreView: UIView {
 
 extension ScoreView {
     
-    func loadTextField() {
-        textField.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.1, width: frame.width * 0.4, height: frame.height * 0.65)
+    fileprivate func loadScoreOutliner() {
+        
+        scoreOutliner.frame = CGRect(x: frame.width * 0.4, y: frame.height * 0.04, width: frame.width * 0.2, height: frame.height * 0.08)
+        scoreOutliner.backgroundColor = UIColor.blue
+        scoreOutliner.alpha = 0.5
+        scoreOutliner.layer.borderWidth = 3
+        scoreOutliner.layer.borderColor = UIColor.black.cgColor
+        scoreOutliner.transform = CGAffineTransform.init(rotationAngle: -0.0523599)
+        self.addSubview(scoreOutliner)
+        
+        UIView.animate(withDuration: 2.0, delay: 0.0, options: [.allowUserInteraction, .repeat, .autoreverse], animations: {
+            self.scoreOutliner.transform = CGAffineTransform.init(rotationAngle: 0.10472)
+        }, completion: nil)
+        UIView.animate(withDuration: 5.0, delay: 0.0, options: [.allowUserInteraction, .repeat, .autoreverse], animations: {
+            self.scoreOutliner.backgroundColor = UIColor.brown
+        }, completion: nil)
+        
+    }
+    
+    fileprivate func loadScoreLabel() {
+        scoreLabel.frame = CGRect(x: frame.width * 0.4, y: frame.height * 0.04, width: frame.width * 0.2, height: frame.height * 0.08)
+        scoreLabel.backgroundColor = UIColor.clear
+        scoreLabel.textAlignment = .center
+        scoreLabel.font = Fonts.score
+        scoreLabel.text = "Scores:"
+        self.addSubview(scoreLabel)
+    }
+    
+    fileprivate func loadTextField() {
+        textField.frame = CGRect(x: frame.width * 0.3, y: frame.height * 0.12, width: frame.width * 0.4, height: frame.height * 0.65)
         textField.backgroundColor = UIColor.clear
         textField.textAlignment = .center
         textField.font = Fonts.score
@@ -50,7 +82,7 @@ extension ScoreView {
         self.addSubview(textField)
         
         let scores = ScoreController.main.getScoreHistory()
-        var scoreText = "Scores\n"
+        var scoreText = ""
         
         for count in 0...9 {
             if count < scores.count {
@@ -62,7 +94,7 @@ extension ScoreView {
         textField.text = scoreText
     }
     
-    func loadDoneButton() {
+    fileprivate func loadDoneButton() {
         doneButton.frame = CGRect(x: frame.width * 0.35, y: frame.height * 0.8, width: frame.width * 0.3, height: frame.height * 0.1)
         doneButton.addTarget(self, action: #selector(doneButtonAction), for: .touchUpInside)
         doneButton.backgroundColor = UIColor.green

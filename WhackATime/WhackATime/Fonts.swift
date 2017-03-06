@@ -33,7 +33,7 @@ struct Fonts {
     
     static var credit: UIFont {
         
-        let size = UIScreen.main.bounds.height / 16
+        let size = UIScreen.main.bounds.height / 20
         
         let font = UIFont(name: "Futura-CondensedExtraBold", size: size)
         
