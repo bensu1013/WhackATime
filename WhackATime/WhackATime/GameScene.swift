@@ -18,7 +18,7 @@ protocol GameSceneDelegate: class {
 class GameScene: SKScene {
 
     weak var gsDelegate: GameSceneDelegate?
-    var bunny: Bunny?
+    var bunnies = [Bunny]()
     var rainFallLevel: Int = 0
     let hud = HudLayer.main
     
@@ -27,7 +27,20 @@ class GameScene: SKScene {
         self.physicsWorld.contactDelegate = self
         self.addChild(RainFactory.droplets)
         self.addChild(CloudFactory.clouds)
-        bunny = self.childNode(withName: "bunny") as? Bunny
+        
+        for count in 0...1 {
+            let bunny = Bunny(texture: nil, color: UIColor.clear, size: CGSize(width: 120, height: 190))
+            if count == 0 {
+                bunny.position = CGPoint(x: -200, y: -239)
+            } else {
+                bunny.position = CGPoint(x: 200, y: -239)
+            }
+            
+            
+            bunnies.append(bunny)
+            self.addChild(bunny)
+        }
+
         resetScene()
         startGame()
         
@@ -61,25 +74,32 @@ class GameScene: SKScene {
                 }
             }
         }
-        
     }
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        bunny?.update()
+        for bunny in bunnies {
+            bunny.update()
+            
+        }
         StopWatch.updateTime(current: currentTime)
         hud.setTimer(to: StopWatch.elapsedTimeInSeconds())
         createRainFall()
         createClouds()
         
-//        print(UIScreen.main.bounds)
-//        print("@@@\(self.frame)@@@")
     }
     
     @objc fileprivate func startGame() {
         self.isPaused = false
         StopWatch.isPaused = false
-        bunny?.reset()
+        for (count, bunny) in bunnies.enumerated() {
+            if count == 0 {
+                bunny.reset(pos: -200)
+            } else {
+                bunny.reset(pos: 200)
+            }
+            
+        }
     }
     
     @objc fileprivate func resumeGame() {
@@ -88,10 +108,8 @@ class GameScene: SKScene {
     }
     
     @objc fileprivate func pauseGame() {
-        
         self.isPaused = true
         StopWatch.isPaused = true
-        
     }
     
     func resetScene() {
@@ -116,7 +134,6 @@ class GameScene: SKScene {
             self.run(CloudFactory.cycleClouds(), withKey: "createCloud")
         }
         
-        
     }
     
     fileprivate func createRainFall() {
@@ -140,7 +157,6 @@ class GameScene: SKScene {
             rainFallLevel += 1
         }
     }
-    
     
 }
 
@@ -176,7 +192,6 @@ extension GameScene: SKPhysicsContactDelegate {
             }
             
         //droplet touches bunny
-            
         } else if a.categoryBitMask == 1 && b.categoryBitMask == 4 {
             
             if let droplet = b.node as? Droplet {

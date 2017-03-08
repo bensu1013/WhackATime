@@ -26,9 +26,25 @@ class Bunny: SKSpriteNode {
     private var walkTexture = [SKTexture(imageNamed: "bunny1_walk1"),
                                SKTexture(imageNamed: "bunny1_walk2")]
     
-    func reset() {
+    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+        super.init(texture: texture, color: color, size: size)
         
-        self.position.x = 0
+        self.physicsBody = SKPhysicsBody(rectangleOf: self.frame.size)
+        self.physicsBody?.affectedByGravity = true
+        self.physicsBody?.categoryBitMask = 1
+        self.physicsBody?.collisionBitMask = 6
+        self.physicsBody?.contactTestBitMask = 4
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+//        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func reset(pos: CGFloat) {
+        
+        self.position.x = pos
         self.texture = readyTexture
         self.removeAllActions()
     }
@@ -38,7 +54,7 @@ class Bunny: SKSpriteNode {
     }
     
     func update() {
-
+        
         switch direction {
         case .left:
             if !self.hasActions() {
@@ -147,7 +163,6 @@ class Bunny: SKSpriteNode {
                 distance = 576 - self.position.x
                 dura = Double(distance / 100)
             }
-            
             
             self.xScale = 1
             
